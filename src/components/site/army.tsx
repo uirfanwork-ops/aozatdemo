@@ -33,7 +33,7 @@ export function Army() {
               <Role key={r} label={r} spot={spots[i]} index={i} progress={scrollYProgress} />
             ))}
           </div>
-          <div className="pointer-events-none absolute left-1/2 top-1/2 z-[5] h-[52%] w-[82%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/85 blur-3xl" />
+          <div className="pointer-events-none absolute left-1/2 top-1/2 z-[5] h-[52%] w-[82%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-background/85 blur-3xl" />
           <div className="container-x relative z-10 text-center">
             <motion.h2
               style={{ opacity: titleOpacity, y: titleY }}
@@ -72,7 +72,7 @@ function Role({
   return (
     <motion.span
       style={{ left: `${spot.x}%`, top: `${spot.y}%`, opacity, x, y }}
-      className="absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full border border-border bg-white px-3 py-1.5 text-sm text-muted-foreground shadow-sm"
+      className="absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full border border-border bg-card px-3 py-1.5 text-sm text-muted-foreground shadow-sm"
     >
       {label}
     </motion.span>

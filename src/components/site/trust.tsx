@@ -48,7 +48,7 @@ export function Trust() {
             </p>
           </Reveal>
           <Reveal delay={0.2} className="mt-10">
-            <div className="relative overflow-hidden rounded-3xl border border-border bg-[radial-gradient(80%_60%_at_30%_20%,oklch(0.9_0.04_200)_0%,oklch(0.78_0.08_250)_100%)]">
+            <div className="relative overflow-hidden rounded-3xl border border-border bg-[radial-gradient(80%_60%_at_30%_20%,var(--brand-2)_0%,var(--brand)_100%)]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={imagery.projectManagers}

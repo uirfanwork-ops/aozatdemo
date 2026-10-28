@@ -172,7 +172,7 @@ function StackCard({
         style={{ scale }}
         className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-[0_30px_70px_-40px_rgba(15,23,42,0.35)] will-change-transform"
       >
-        <motion.div style={{ opacity: dim }} className="pointer-events-none absolute inset-0 z-10 bg-white" />
+        <motion.div style={{ opacity: dim }} className="pointer-events-none absolute inset-0 z-10 bg-background" />
         <div className="grid gap-8 p-7 sm:p-9 lg:grid-cols-[1fr_auto]">
           <div className="max-w-[48ch]">
             <div className="flex items-center gap-3">

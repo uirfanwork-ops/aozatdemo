@@ -67,13 +67,13 @@ export function Apply() {
                 onSubmit={submit}
               >
                 <label className="sr-only" htmlFor="name">Name</label>
-                <Input className="h-12 rounded-xl bg-white px-4" id="name" name="name" placeholder="Your name" required autoComplete="name" />
+                <Input className="h-12 rounded-xl bg-card px-4" id="name" name="name" placeholder="Your name" required autoComplete="name" />
                 <label className="sr-only" htmlFor="company">Company</label>
-                <Input className="h-12 rounded-xl bg-white px-4" id="company" name="company" placeholder="Company" required autoComplete="organization" />
+                <Input className="h-12 rounded-xl bg-card px-4" id="company" name="company" placeholder="Company" required autoComplete="organization" />
                 <label className="sr-only" htmlFor="email">Work email</label>
-                <Input className="h-12 rounded-xl bg-white px-4" id="email" name="email" type="email" placeholder="Work email" required autoComplete="email" />
+                <Input className="h-12 rounded-xl bg-card px-4" id="email" name="email" type="email" placeholder="Work email" required autoComplete="email" />
                 <label className="sr-only" htmlFor="revenue">Annual revenue</label>
-                <Input className="h-12 rounded-xl bg-white px-4" id="revenue" name="revenue" placeholder="Approximate annual revenue" />
+                <Input className="h-12 rounded-xl bg-card px-4" id="revenue" name="revenue" placeholder="Approximate annual revenue" />
                 <Button type="submit" variant="brand" size="xl" className="mt-2 w-full" disabled={sent || state === "sending"}>
                   {sent ? "Received. We will be in touch." : state === "sending" ? "Sending" : "Request a walkthrough"}
                   {!sent && <ArrowRight className="transition-transform duration-300 group-hover/btn:translate-x-1" />}

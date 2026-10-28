@@ -1,0 +1,45 @@
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:#0d0c0b;overflow:hidden}canvas{display:block}</style></head>
+<body><canvas id="c" width="1920" height="1080"></canvas>
+<script>
+// Slow aerial drift over a steel structural frame at dusk. Deterministic, loops at 14s.
+const c=document.getElementById('c'),g=c.getContext('2d');const W=1920,H=1080;
+let seed=7;const rnd=()=>{seed=(seed*16807)%2147483647;return seed/2147483647};
+// Structure: columns, beams, joists on a grid
+const cols=[],bays=9,rows=6,sx=5.2,sz=5.2,levels=[0,4.2,8.4,12.6];
+for(let i=0;i<=bays;i++)for(let j=0;j<=rows;j++)cols.push({x:(i-bays/2)*sx,z:(j-rows/2)*sz,h:levels[Math.min(3,Math.floor(rnd()*4)+1)] });
+const dust=Array.from({length:260},()=>({x:rnd()*W,y:rnd()*H,r:rnd()*1.6+.3,s:rnd()*.25+.08,a:rnd()*.5+.1,p:rnd()*6.28}));
+function proj(x,y,z,t){ // orbiting camera
+  const ang=-0.55+t*0.045, cx=Math.cos(ang),sx2=Math.sin(ang);
+  const rx=x*cx-z*sx2, rz=x*sx2+z*cx;
+  const camY=22-y, dist=rz+46;
+  const f=1500/dist; return {X:W/2+rx*f, Y:H*0.62-(y-7)*f*0.9+rz*f*0.32, f, d:dist};
+}
+function line(a,b,alpha,w){g.strokeStyle=`rgba(236,231,223,${alpha})`;g.lineWidth=w;g.beginPath();g.moveTo(a.X,a.Y);g.lineTo(b.X,b.Y);g.stroke();}
+function frame(t){
+  // sky / dusk gradient
+  const sky=g.createLinearGradient(0,0,0,H);sky.addColorStop(0,'#0b0a0a');sky.addColorStop(.55,'#161210');sky.addColorStop(1,'#0c0b0a');g.fillStyle=sky;g.fillRect(0,0,W,H);
+  // warm horizon glow drifting
+  const gx=W*0.68+Math.sin(t*0.25)*90;const glow=g.createRadialGradient(gx,H*0.5,20,gx,H*0.5,900);glow.addColorStop(0,'rgba(232,112,42,0.30)');glow.addColorStop(.4,'rgba(232,112,42,0.10)');glow.addColorStop(1,'rgba(0,0,0,0)');g.fillStyle=glow;g.fillRect(0,0,W,H);
+  // ground plane grid
+  for(let i=-8;i<=8;i++){const a=proj((i)*sx,0,-rows*sz,t),b=proj(i*sx,0,rows*sz,t);line(a,b,0.05,1);}
+  for(let j=-6;j<=6;j++){const a=proj(-bays*sx,0,j*sz,t),b=proj(bays*sx,0,j*sz,t);line(a,b,0.05,1);}
+  // columns and beams, drawn back-to-front
+  const items=[];
+  cols.forEach(cl=>{const base=proj(cl.x,0,cl.z,t);items.push({d:base.d,draw:()=>{const top=proj(cl.x,cl.h,cl.z,t);const al=Math.min(0.9,Math.max(0.12,1.3-base.d/70));line(base,top,al,Math.max(1,2.2*top.f/35));
+    // beams to neighbours
+    [[sx,0],[0,sz]].forEach(([dx,dz])=>{const n=cols.find(o=>Math.abs(o.x-(cl.x+dx))<.01&&Math.abs(o.z-(cl.z+dz))<.01);if(!n)return;levels.slice(1).forEach(lv=>{if(cl.h>=lv&&n.h>=lv){line(proj(cl.x,lv,cl.z,t),proj(n.x,lv,n.z,t),al*0.75,Math.max(.8,1.6*top.f/35));}});});
+    // joists between beams on x bays (sparse)
+    if(cl.h>=4.2){for(let k=1;k<4;k++){const n=cols.find(o=>Math.abs(o.x-(cl.x+sx))<.01&&Math.abs(o.z-cl.z)<.01);if(!n||n.h<4.2)continue;const zz=cl.z+k*sz/4;const z2=cl.z;line(proj(cl.x,4.2,zz,t),proj(n.x,4.2,zz,t),al*0.25,.8);}}
+  }});});
+  items.sort((a,b)=>b.d-a.d).forEach(i=>i.draw());
+  // crane boom silhouette
+  const cb=proj(-6,0,-18,t),ct=proj(-6,24,-18,t),ce=proj(16,24,-18,t);line(cb,ct,.55,3);line(ct,ce,.5,2.4);line(proj(-6,27,-18,t),proj(10,24,-18,t),.35,1);
+  // light sweep
+  const lx=((t*0.11)%1.4-0.2)*W;const sw=g.createLinearGradient(lx-260,0,lx+260,0);sw.addColorStop(0,'rgba(255,255,255,0)');sw.addColorStop(.5,'rgba(255,214,170,0.07)');sw.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=sw;g.fillRect(0,0,W,H);
+  // dust
+  dust.forEach(p=>{const y=(p.y - t*p.s*40)%H;const yy=y<0?y+H:y;const a=p.a*(0.6+0.4*Math.sin(t*1.3+p.p));g.fillStyle=`rgba(236,222,205,${a})`;g.beginPath();g.arc(p.x+Math.sin(t*0.4+p.p)*12,yy,p.r,0,6.28);g.fill();});
+  // vignette
+  const v=g.createRadialGradient(W/2,H/2,H*0.35,W/2,H/2,H*0.95);v.addColorStop(0,'rgba(0,0,0,0)');v.addColorStop(1,'rgba(0,0,0,0.65)');g.fillStyle=v;g.fillRect(0,0,W,H);
+}
+window.renderFrame=(t)=>{frame(t);return c.toDataURL('image/jpeg',0.92)};
+</script></body></html>

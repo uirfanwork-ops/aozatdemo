@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { MaskedLines } from "@/components/site/reveal";
 import { media } from "@/lib/media";
 import { ExplainerDialog, PlayBadge } from "@/components/site/explainer";
+import { Blueprint } from "@/components/site/blueprint";
 
 const ease = [0.2, 0.8, 0.2, 1] as const;
 
@@ -22,6 +23,8 @@ export function Hero() {
 
   return (
     <section ref={ref} className="bg-wash relative overflow-hidden bg-background pt-36 sm:pt-44">
+      <Blueprint />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-background to-transparent" />
       <motion.div style={{ y: textY, opacity: textOpacity }} className="container-x relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 12 }}

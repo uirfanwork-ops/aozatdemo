@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Play } from "lucide-react";
 
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { explainer } from "@/lib/media";
+import { explainer, explainerSrc } from "@/lib/media";
 import { cn } from "@/lib/utils";
 
 /** Click-to-play explainer in a shadcn Dialog. Local file first, Drive preview as fallback. */
@@ -32,7 +32,8 @@ export function ExplainerDialog({
           {open && !useDrive && (
             <video
               className="h-full w-full"
-              src={explainer.local}
+              src={explainerSrc()}
+              poster={explainer.poster}
               controls
               autoPlay
               playsInline

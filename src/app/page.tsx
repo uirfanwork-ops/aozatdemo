@@ -10,6 +10,7 @@ import { PhotoBreak } from "@/components/site/photo-break";
 import { Day } from "@/components/site/day";
 import { Trust } from "@/components/site/trust";
 import { Apply } from "@/components/site/apply";
+import { Pricing } from "@/components/site/pricing";
 import { Faq } from "@/components/site/faq";
 import { Footer } from "@/components/site/footer";
 
@@ -27,6 +28,7 @@ export default function Home() {
       <Day />
       <Confirm />
       <Trust />
+      <Pricing />
       <Apply />
       <Faq />
       <Footer />

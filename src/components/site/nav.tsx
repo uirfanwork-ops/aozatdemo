@@ -11,6 +11,7 @@ import { Logo } from "@/components/site/logo";
 import { cn } from "@/lib/utils";
 
 const links = [
+  { href: "#how", label: "How it works" },
   { href: "#operator", label: "Platform" },
   { href: "#day", label: "A day" },
   { href: "#trust", label: "Security" },

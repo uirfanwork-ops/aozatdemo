@@ -9,8 +9,10 @@ import {
   HardHat,
   Users,
   Landmark,
+  Maximize2,
 } from "lucide-react";
 
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Reveal, MaskedLines } from "@/components/site/reveal";
 import { cn } from "@/lib/utils";
 
@@ -19,6 +21,7 @@ const modules = [
     key: "01",
     icon: Radar,
     title: "Lead generation",
+    screen: { src: "/portal/lead-generation.jpg", label: "Lead Manager", alt: "The Omni GC Lead Manager: new leads, qualified, and in estimating, on a board" },
     body: "Watches permit filings, tenders, franchise expansion notices and your own referral network. Every morning there is a short list of jobs worth a phone call, with the reason each one made the cut.",
     detail: ["Permit and tender feeds", "Owner and developer tracking", "Fit score per lead"],
   },
@@ -26,6 +29,7 @@ const modules = [
     key: "02",
     icon: Handshake,
     title: "Sales and estimating",
+    screen: { src: "/portal/sales-estimating.jpg", label: "AI takeoff", alt: "An Omni GC AI takeoff: measured items with confidence notes beside the floor plan, waiting for review" },
     body: "Drafts the takeoff, prices it against your real cost history, writes the proposal in your voice and follows up until the client answers. You review numbers, not paperwork.",
     detail: ["Takeoff from drawings", "Cost history pricing", "Follow-up cadence"],
   },
@@ -33,6 +37,7 @@ const modules = [
     key: "03",
     icon: Megaphone,
     title: "Marketing",
+    screen: { src: "/portal/marketing.jpg", label: "Automations", alt: "Omni GC automations: email flows that chase quotes, welcome clients, and ask for reviews" },
     body: "Turns finished jobs into case studies, site photos into posts, and quiet months into outreach. Runs on a calendar you approve once a quarter.",
     detail: ["Case studies from close-out", "Site photo pipeline", "Quarterly calendar"],
   },
@@ -40,6 +45,7 @@ const modules = [
     key: "04",
     icon: HardHat,
     title: "Project management",
+    screen: { src: "/portal/project-management.jpg", label: "Project schedule", alt: "An Omni GC project schedule: phases and line items on a Gantt chart, with progress from site reports" },
     body: "Schedules trades, chases submittals, logs daily reports from the field and flags the slip before it becomes a claim. Change orders go out the same day they are discovered.",
     detail: ["Trade scheduling", "Daily logs and RFIs", "Same-day change orders"],
   },
@@ -47,6 +53,7 @@ const modules = [
     key: "05",
     icon: Users,
     title: "Client and customer management",
+    screen: { src: "/portal/client-management.jpg", label: "Client portal", alt: "A client's Omni GC portal: their projects in construction, starting soon, and completed" },
     body: "Every owner, architect and tenant gets a portal with the schedule, the budget and the photos. Questions get answered before they turn into calls to your cell.",
     detail: ["Owner portal", "Approvals and sign-offs", "Warranty tracking"],
   },
@@ -54,6 +61,7 @@ const modules = [
     key: "06",
     icon: Landmark,
     title: "Financial dashboards",
+    screen: { src: "/portal/financial-dashboards.jpg", label: "Expenses", alt: "Omni GC expenses: spend by category and by project, with tax split out" },
     body: "Job costing, cash position, receivables and backlog on one screen, reconciled against the bank every night. You see the margin on each job while there is still time to protect it.",
     detail: ["Live job costing", "Cash and AR ageing", "Backlog and WIP"],
   },
@@ -167,25 +175,27 @@ function StackCard({
   const Icon = module.icon;
 
   return (
-    <div className={cn("sticky top-24 pb-8", isLast ? "lg:pb-32" : "")} style={{ zIndex: index + 1 }}>
+    <div className={cn("pb-8 lg:sticky lg:top-24", isLast ? "lg:pb-32" : "")} style={{ zIndex: index + 1 }}>
       <motion.article
         style={{ scale }}
         className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-[0_30px_70px_-40px_rgba(15,23,42,0.35)] will-change-transform"
       >
         <motion.div style={{ opacity: dim }} className="pointer-events-none absolute inset-0 z-10 bg-background" />
-        <div className="grid gap-8 p-7 sm:p-9 lg:grid-cols-[1fr_auto]">
-          <div className="max-w-[48ch]">
-            <div className="flex items-center gap-3">
-              <span className="bg-brand-gradient flex size-10 items-center justify-center rounded-xl text-white">
-                <Icon className="size-[18px]" />
-              </span>
-              <span className="text-sm text-muted-foreground">
-                {module.key} / 06
-              </span>
+        <div className="p-7 sm:p-9">
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+            <div className="max-w-[52ch]">
+              <div className="flex items-center gap-3">
+                <span className="bg-brand-gradient flex size-10 items-center justify-center rounded-xl text-white">
+                  <Icon className="size-[18px]" />
+                </span>
+                <span className="text-sm text-muted-foreground">
+                  {module.key} / 06
+                </span>
+              </div>
+              <h3 className="font-display mt-6 text-3xl font-bold uppercase tracking-[-0.03em] sm:text-4xl">{module.title}</h3>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-[17px]">{module.body}</p>
             </div>
-            <h3 className="font-display mt-6 text-3xl font-bold uppercase tracking-[-0.03em] sm:text-4xl">{module.title}</h3>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-[17px]">{module.body}</p>
-            <ul className="mt-6 flex flex-wrap gap-2">
+            <ul className="flex flex-wrap gap-2 lg:max-w-[230px] lg:flex-col lg:items-start">
               {module.detail.map((d) => (
                 <li
                   key={d}
@@ -196,150 +206,49 @@ function StackCard({
               ))}
             </ul>
           </div>
-          <ModulePreview index={index} />
+          <ModuleScreen screen={module.screen} />
         </div>
       </motion.article>
     </div>
   );
 }
 
-/** Small code-drawn UI vignettes so each module card shows the product, not a stock icon. */
-function ModulePreview({ index }: { index: number }) {
-  const base =
-    "relative w-full overflow-hidden rounded-2xl border border-border bg-secondary/60 p-4 lg:w-[300px] xl:w-[340px]";
-  if (index === 0)
-    return (
-      <div className={base}>
-        <Row label="Today's leads" value="7 new" />
-        {[
-          ["Permit, Mississauga", "Tenant fit-out, 14,200 sq ft", "92"],
-          ["Tender, Vaughan", "Industrial mezzanine", "81"],
-          ["Referral, Oakville", "Restaurant buildout", "77"],
-        ].map(([a, b, c]) => (
-          <div key={a} className="mt-2 flex items-center justify-between rounded-lg border border-border/70 px-3 py-2.5">
-            <div>
-              <p className="text-[12.5px] text-foreground/90">{a}</p>
-              <p className="text-[11.5px] text-muted-foreground">{b}</p>
-            </div>
-            <span className="text-xs text-brand">{c}</span>
-          </div>
-        ))}
-      </div>
-    );
-  if (index === 1)
-    return (
-      <div className={base}>
-        <Row label="Proposal, draft 3" value="Review" />
-        <div className="mt-3 space-y-2">
-          {[
-            ["Demolition and disposal", 68],
-            ["Framing and drywall", 100],
-            ["Mechanical", 84],
-            ["Electrical", 72],
-            ["Finishes", 55],
-          ].map(([l, w]) => (
-            <div key={l as string}>
-              <div className="flex justify-between text-[11.5px] text-muted-foreground">
-                <span>{l}</span>
-                <span>{w}%</span>
-              </div>
-              <div className="mt-1 h-1 rounded-full bg-foreground/8">
-                <div className="bg-brand-gradient h-1 rounded-full" style={{ width: `${w}%` }} />
-              </div>
-            </div>
-          ))}
-        </div>
-        <p className="mt-3 text-[11.5px] text-muted-foreground">Priced against 41 similar jobs</p>
-      </div>
-    );
-  if (index === 2)
-    return (
-      <div className={base}>
-        <Row label="Calendar, November" value="12 scheduled" />
-        <div className="mt-3 grid grid-cols-7 gap-1.5">
-          {Array.from({ length: 28 }).map((_, i) => (
-            <div
-              key={i}
-              className={cn(
-                "aspect-square rounded-md border border-border/60",
-                [2, 5, 9, 12, 16, 19, 23, 26].includes(i) && "border-transparent bg-brand-gradient opacity-80",
-                [7, 14, 21, 27].includes(i) && "bg-foreground/[0.06]",
-              )}
-            />
-          ))}
-        </div>
-        <p className="mt-3 text-[11.5px] text-muted-foreground">Case study queued from job 2241 close-out</p>
-      </div>
-    );
-  if (index === 3)
-    return (
-      <div className={base}>
-        <Row label="Job 2241, week 14" value="On schedule" />
-        <div className="mt-3 space-y-2">
-          {[
-            ["Steel erection", 0, 60, true],
-            ["Roofing", 40, 35, true],
-            ["Mechanical rough-in", 55, 30, false],
-            ["Electrical rough-in", 60, 30, false],
-            ["Drywall", 85, 15, false],
-          ].map(([l, s, w, done]) => (
-            <div key={l as string} className="flex items-center gap-3">
-              <span className="w-[108px] truncate text-[11.5px] text-muted-foreground">{l}</span>
-              <div className="relative h-2 flex-1 rounded-full bg-foreground/[0.06]">
-                <div
-                  className={cn("absolute h-2 rounded-full", done ? "bg-foreground/50" : "bg-brand-gradient")}
-                  style={{ left: `${s}%`, width: `${w}%` }}
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-        <p className="mt-3 text-[11.5px] text-brand">Change order 07 issued 2:14 pm</p>
-      </div>
-    );
-  if (index === 4)
-    return (
-      <div className={base}>
-        <Row label="Owner portal" value="3 approvals" />
-        <div className="mt-3 space-y-2">
-          {[
-            ["Finish schedule rev. B", "Approved"],
-            ["CO-07, added sprinkler heads", "Awaiting"],
-            ["Progress draw 6", "Approved"],
-          ].map(([a, b]) => (
-            <div key={a} className="flex items-center justify-between rounded-lg border border-border/70 px-3 py-2.5">
-              <span className="text-[12.5px] text-foreground/90">{a}</span>
-              <span className={cn("text-xs", b === "Approved" ? "text-steel" : "text-brand")}>
-                {b}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  return (
-    <div className={base}>
-      <Row label="Cash position" value="Reconciled 11:58 pm" />
-      <div className="mt-3 flex items-end gap-1.5">
-        {[42, 48, 44, 60, 58, 66, 70, 64, 78, 82, 76, 90].map((h, i) => (
-          <div key={i} className="flex-1 rounded-sm bg-foreground/[0.06]" style={{ height: `${h}px` }}>
-            <div className="bg-brand-gradient h-full w-full rounded-sm" style={{ opacity: i > 8 ? 1 : 0.45 }} />
-          </div>
-        ))}
-      </div>
-      <div className="mt-3 flex justify-between text-[11.5px] text-muted-foreground">
-        <span>Receivables over 60 days</span>
-        <span className="text-foreground/90">2 invoices</span>
-      </div>
-    </div>
+/**
+ * The module's screen from the product itself, run on made-up data, in a window
+ * frame. A click opens it full size, since the card shows it at about half scale.
+ */
+function ModuleScreen({ screen }: { screen: (typeof modules)[number]["screen"] }) {
+  const img = (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img src={screen.src} alt={screen.alt} width={1600} height={1000} loading="lazy" className="block h-auto w-full" />
   );
-}
-
-function Row({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex items-center justify-between">
-      <span className="text-xs text-muted-foreground">{label}</span>
-      <span className="text-[11.5px] text-foreground/80">{value}</span>
-    </div>
+    <Dialog>
+      <DialogTrigger asChild>
+        <button
+          type="button"
+          aria-label={`Open a larger view of the ${screen.label} screen`}
+          className="group/screen mt-7 block w-full overflow-hidden rounded-2xl border border-border bg-secondary/60 text-left shadow-[0_30px_60px_-40px_rgba(0,0,0,0.6)] transition-colors duration-300 hover:border-brand/50"
+        >
+          <span className="flex items-center gap-2 border-b border-border px-4 py-2.5">
+            <span className="flex gap-1.5" aria-hidden="true">
+              <span className="size-2.5 rounded-full bg-foreground/15" />
+              <span className="size-2.5 rounded-full bg-foreground/15" />
+              <span className="size-2.5 rounded-full bg-foreground/15" />
+            </span>
+            <span className="ml-2 text-xs text-muted-foreground">Omni GC · {screen.label}</span>
+            <Maximize2 className="ml-auto size-3.5 text-muted-foreground transition-colors group-hover/screen:text-brand" aria-hidden="true" />
+          </span>
+          {img}
+        </button>
+      </DialogTrigger>
+      <DialogContent
+        showCloseButton
+        className="w-[min(96vw,1400px)] max-w-none overflow-hidden rounded-2xl border-border bg-black p-0 sm:max-w-none"
+      >
+        <DialogTitle className="sr-only">{screen.label}</DialogTitle>
+        {img}
+      </DialogContent>
+    </Dialog>
   );
 }

@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MaskedLines } from "@/components/site/reveal";
 import { media } from "@/lib/media";
+import { ExplainerDialog, PlayBadge } from "@/components/site/explainer";
 
 const ease = [0.2, 0.8, 0.2, 1] as const;
 
@@ -61,12 +62,12 @@ export function Hero() {
                 <ArrowRight className="transition-transform duration-300 group-hover/btn:translate-x-1" />
               </a>
             </Button>
-            <Button variant="outline" size="xl" asChild>
-              <a href="#dashboard">
+            <ExplainerDialog>
+              <Button variant="outline" size="xl">
                 <Play className="fill-current" />
-                See the product
-              </a>
-            </Button>
+                Watch the explainer
+              </Button>
+            </ExplainerDialog>
           </motion.div>
         </div>
       </motion.div>
@@ -79,7 +80,7 @@ export function Hero() {
       >
         <motion.div style={{ y: panelY, scale: panelScale }} className="will-change-transform">
           <div className="bg-brand-gradient rounded-[28px] p-[2px] shadow-[0_40px_90px_-40px_var(--brand-glow)]">
-            <div className="relative aspect-[16/9] overflow-hidden rounded-[26px] bg-[#0d0c0b] sm:aspect-[21/9]">
+            <div className="group/panel relative aspect-[16/9] overflow-hidden rounded-[26px] bg-[#0d0c0b] sm:aspect-[21/9]">
               <video
                 className="h-full w-full object-cover"
                 autoPlay
@@ -95,6 +96,15 @@ export function Hero() {
                 <source src="/hero.mp4" type="video/mp4" />
               </video>
               <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(14,23,38,0.55)_0%,transparent_45%)]" />
+              <ExplainerDialog>
+                <button
+                  type="button"
+                  aria-label="Watch the explainer"
+                  className="absolute inset-0 flex items-center justify-center outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
+                >
+                  <PlayBadge />
+                </button>
+              </ExplainerDialog>
             </div>
           </div>
         </motion.div>

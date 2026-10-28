@@ -28,6 +28,10 @@ npm start
 
 Dark only: near-black surfaces with an orange-to-amber gradient. Four sections (the statement, finance, approval and FAQ) sit white as islands via the `.island` class, which re-declares the light tokens locally.
 
+## Hero explainer
+
+The hero panel and the "Watch the explainer" button open a shadcn Dialog with the promo video. The player tries `public/explainer.mp4` first and falls back to the Google Drive preview of `omni-gc-promo.mp4` (file ID in `src/lib/media.ts`). The Drive fallback needs the file shared as "anyone with the link". For launch, put the mp4 at `public/explainer.mp4` (or host it on Vercel Blob and change `explainer.local`).
+
 ## Walkthrough form
 
 The form posts to `/api/walkthrough`. Set `RESEND_API_KEY` and `WALKTHROUGH_INBOX` (see `.env.example`) to have requests emailed through Resend. Without them the route validates and logs the request so previews still work.

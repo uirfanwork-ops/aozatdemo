@@ -20,7 +20,7 @@ export function Film() {
   };
 
   return (
-    <section id="film" className="border-t border-border bg-background py-28 sm:py-36">
+    <section id="film" className="scroll-mt-20 bg-background pb-28 pt-4 sm:pb-36">
       <div className="container-x">
         <Reveal className="mx-auto max-w-[52ch] text-center">
           <p className="eyebrow">The 90-second tour</p>

@@ -140,7 +140,6 @@ function RailItem({
       style={{ opacity, x }}
       className="font-display flex items-baseline gap-4 border-b border-border py-4 text-2xl tracking-tight last:border-b-0"
     >
-      <span className="font-mono text-[11px] text-muted-foreground">0{index + 1}</span>
       {children}
     </motion.li>
   );
@@ -179,9 +178,7 @@ function StackCard({
               <span className="flex size-10 items-center justify-center rounded-xl border border-border bg-foreground/[0.03] text-brand">
                 <Icon className="size-[18px]" />
               </span>
-              <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-                Module {module.key}
-              </span>
+              <span className="text-sm text-muted-foreground">{module.title}</span>
             </div>
             <h3 className="font-display mt-6 text-3xl font-medium tracking-tight sm:text-4xl">{module.title}</h3>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-[17px]">{module.body}</p>
@@ -212,16 +209,16 @@ function ModulePreview({ index }: { index: number }) {
       <div className={base}>
         <Row label="Today's leads" value="7 new" />
         {[
-          ["Permit · Mississauga", "Tenant fit-out, 14,200 sq ft", "92"],
-          ["Tender · Vaughan", "Industrial mezzanine", "81"],
-          ["Referral · Oakville", "Restaurant buildout", "77"],
+          ["Permit, Mississauga", "Tenant fit-out, 14,200 sq ft", "92"],
+          ["Tender, Vaughan", "Industrial mezzanine", "81"],
+          ["Referral, Oakville", "Restaurant buildout", "77"],
         ].map(([a, b, c]) => (
           <div key={a} className="mt-2 flex items-center justify-between rounded-lg border border-border/70 px-3 py-2.5">
             <div>
               <p className="text-[12.5px] text-foreground/90">{a}</p>
               <p className="text-[11.5px] text-muted-foreground">{b}</p>
             </div>
-            <span className="font-mono text-[11px] text-brand">{c}</span>
+            <span className="text-xs text-brand">{c}</span>
           </div>
         ))}
       </div>
@@ -229,7 +226,7 @@ function ModulePreview({ index }: { index: number }) {
   if (index === 1)
     return (
       <div className={base}>
-        <Row label="Proposal · Draft 3" value="Review" />
+        <Row label="Proposal, draft 3" value="Review" />
         <div className="mt-3 space-y-2">
           {[
             ["Demolition and disposal", 68],
@@ -241,7 +238,7 @@ function ModulePreview({ index }: { index: number }) {
             <div key={l as string}>
               <div className="flex justify-between text-[11.5px] text-muted-foreground">
                 <span>{l}</span>
-                <span className="font-mono">{w}%</span>
+                <span>{w}%</span>
               </div>
               <div className="mt-1 h-1 rounded-full bg-foreground/10">
                 <div className="h-1 rounded-full bg-steel" style={{ width: `${w}%` }} />
@@ -255,7 +252,7 @@ function ModulePreview({ index }: { index: number }) {
   if (index === 2)
     return (
       <div className={base}>
-        <Row label="Calendar · November" value="12 scheduled" />
+        <Row label="Calendar, November" value="12 scheduled" />
         <div className="mt-3 grid grid-cols-7 gap-1.5">
           {Array.from({ length: 28 }).map((_, i) => (
             <div
@@ -274,7 +271,7 @@ function ModulePreview({ index }: { index: number }) {
   if (index === 3)
     return (
       <div className={base}>
-        <Row label="Job 2241 · Week 14" value="On schedule" />
+        <Row label="Job 2241, week 14" value="On schedule" />
         <div className="mt-3 space-y-2">
           {[
             ["Steel erection", 0, 60, true],
@@ -304,12 +301,12 @@ function ModulePreview({ index }: { index: number }) {
         <div className="mt-3 space-y-2">
           {[
             ["Finish schedule rev. B", "Approved"],
-            ["CO-07 · Added sprinkler heads", "Awaiting"],
+            ["CO-07, added sprinkler heads", "Awaiting"],
             ["Progress draw 6", "Approved"],
           ].map(([a, b]) => (
             <div key={a} className="flex items-center justify-between rounded-lg border border-border/70 px-3 py-2.5">
               <span className="text-[12.5px] text-foreground/90">{a}</span>
-              <span className={cn("font-mono text-[10.5px] uppercase tracking-wider", b === "Approved" ? "text-steel" : "text-brand")}>
+              <span className={cn("text-xs", b === "Approved" ? "text-steel" : "text-brand")}>
                 {b}
               </span>
             </div>
@@ -329,7 +326,7 @@ function ModulePreview({ index }: { index: number }) {
       </div>
       <div className="mt-3 flex justify-between text-[11.5px] text-muted-foreground">
         <span>Receivables over 60 days</span>
-        <span className="font-mono text-foreground/90">2 invoices</span>
+        <span className="text-foreground/90">2 invoices</span>
       </div>
     </div>
   );
@@ -338,7 +335,7 @@ function ModulePreview({ index }: { index: number }) {
 function Row({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-center justify-between">
-      <span className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-muted-foreground">{label}</span>
+      <span className="text-xs text-muted-foreground">{label}</span>
       <span className="text-[11.5px] text-foreground/80">{value}</span>
     </div>
   );

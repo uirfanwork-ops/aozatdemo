@@ -41,16 +41,14 @@ export function Faq() {
           </Reveal>
         </div>
         <div className="lg:col-span-8">
-          <Reveal delay={0.1}>
-            <Accordion type="single" collapsible>
+          <Accordion type="single" collapsible>
               {faqs.map((f, i) => (
                 <AccordionItem key={f.q} value={`item-${i}`}>
                   <AccordionTrigger className="py-6 text-lg tracking-tight hover:text-brand hover:no-underline md:text-xl [&>svg]:mt-1 [&>svg]:size-5">{f.q}</AccordionTrigger>
                   <AccordionContent className="pb-6 pr-12 text-base leading-relaxed text-muted-foreground">{f.a}</AccordionContent>
                 </AccordionItem>
               ))}
-            </Accordion>
-          </Reveal>
+          </Accordion>
         </div>
       </div>
     </section>

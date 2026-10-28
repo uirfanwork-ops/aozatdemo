@@ -73,7 +73,7 @@ function Frame({ children }: { children: React.ReactNode }) {
         <span className="size-2.5 rounded-full bg-foreground/15" />
         <span className="size-2.5 rounded-full bg-foreground/15" />
         <span className="size-2.5 rounded-full bg-foreground/15" />
-        <span className="ml-4 font-mono text-[11px] text-muted-foreground">Northfield Contracting · Sample workspace</span>
+        <span className="ml-4 text-xs text-muted-foreground">Northfield Contracting, sample workspace</span>
       </div>
       <div className="p-4 sm:p-6">{children}</div>
     </div>
@@ -93,7 +93,7 @@ function Stat({
 }) {
   return (
     <div className="rounded-2xl border border-border bg-background/60 p-4 sm:p-5">
-      <p className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-muted-foreground">{label}</p>
+      <p className="text-xs text-muted-foreground">{label}</p>
       <p className="font-display mt-3 text-2xl font-medium tracking-tight sm:text-3xl">{value}</p>
       <p className={cn("mt-2 flex items-center gap-1 text-[12px]", up ? "text-steel" : "text-brand")}>
         {up ? <ArrowUpRight className="size-3.5" /> : <ArrowDownRight className="size-3.5" />}
@@ -115,7 +115,7 @@ function FinanceView() {
       </div>
       <div className="rounded-2xl border border-border bg-background/60 p-5 lg:col-span-8">
         <div className="flex items-center justify-between">
-          <p className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-muted-foreground">Billed vs. cost, trailing 12 months</p>
+          <p className="text-xs text-muted-foreground">Billed vs. cost, trailing 12 months</p>
           <div className="flex gap-4 text-[11.5px] text-muted-foreground">
             <span className="flex items-center gap-1.5"><span className="size-2 rounded-sm bg-foreground/60" />Billed</span>
             <span className="flex items-center gap-1.5"><span className="size-2 rounded-sm bg-brand" />Cost</span>
@@ -128,14 +128,14 @@ function FinanceView() {
                 <div className="flex-1 rounded-t-sm bg-foreground/55" style={{ height: `${h}%` }} />
                 <div className="flex-1 rounded-t-sm bg-brand/85" style={{ height: `${h * 0.72}%` }} />
               </div>
-              <span className="font-mono text-[10px] text-muted-foreground">{months[i]}</span>
+              <span className="text-[11px] text-muted-foreground">{months[i]}</span>
             </div>
           ))}
         </div>
         <div className="mt-5 grid grid-cols-3 gap-3 border-t border-border pt-4 text-[12.5px]">
-          <div><p className="text-muted-foreground">Gross margin</p><p className="mt-1 font-mono">27.9%</p></div>
-          <div><p className="text-muted-foreground">Retainage held</p><p className="mt-1 font-mono">$486K</p></div>
-          <div><p className="text-muted-foreground">Next draw</p><p className="mt-1 font-mono">Nov 4</p></div>
+          <div><p className="text-muted-foreground">Gross margin</p><p className="mt-1">27.9%</p></div>
+          <div><p className="text-muted-foreground">Retainage held</p><p className="mt-1">$486K</p></div>
+          <div><p className="text-muted-foreground">Next draw</p><p className="mt-1">Nov 4</p></div>
         </div>
       </div>
     </div>
@@ -144,18 +144,18 @@ function FinanceView() {
 
 function PipelineView() {
   const cols = [
-    { name: "Identified", items: ["Fit-out · Mississauga", "Mezzanine · Vaughan", "Clinic · Brampton", "QSR · Milton"] },
-    { name: "Estimating", items: ["Warehouse addition · Ajax", "Dealership · Oakville"] },
-    { name: "Proposed", items: ["Restaurant · Toronto", "Daycare · Burlington", "Lab · Markham"] },
-    { name: "Awarded", items: ["Gym · Hamilton"] },
+    { name: "Identified", items: ["Fit-out, Mississauga", "Mezzanine, Vaughan", "Clinic, Brampton", "QSR, Milton"] },
+    { name: "Estimating", items: ["Warehouse addition, Ajax", "Dealership, Oakville"] },
+    { name: "Proposed", items: ["Restaurant, Toronto", "Daycare, Burlington", "Lab, Markham"] },
+    { name: "Awarded", items: ["Gym, Hamilton"] },
   ];
   return (
     <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
       {cols.map((c) => (
         <div key={c.name} className="rounded-2xl border border-border bg-background/60 p-3">
           <div className="flex items-center justify-between px-1 pb-2">
-            <p className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-muted-foreground">{c.name}</p>
-            <span className="font-mono text-[10.5px] text-muted-foreground">{c.items.length}</span>
+            <p className="text-xs text-muted-foreground">{c.name}</p>
+            <span className="text-xs text-muted-foreground">{c.items.length}</span>
           </div>
           <div className="space-y-2">
             {c.items.map((it) => (
@@ -173,17 +173,17 @@ function PipelineView() {
 
 function ProjectsView() {
   const rows = [
-    ["2241", "Tenant fit-out · Mississauga", "Week 14 of 20", "On schedule", true],
-    ["2238", "Industrial mezzanine · Vaughan", "Week 6 of 9", "On schedule", true],
-    ["2236", "Restaurant buildout · Oakville", "Week 11 of 12", "Watch · permit", false],
-    ["2231", "Clinic renovation · Brampton", "Week 3 of 10", "On schedule", true],
-    ["2229", "Warehouse addition · Ajax", "Week 18 of 22", "Watch · steel delivery", false],
+    ["2241", "Tenant fit-out, Mississauga", "Week 14 of 20", "On schedule", true],
+    ["2238", "Industrial mezzanine, Vaughan", "Week 6 of 9", "On schedule", true],
+    ["2236", "Restaurant buildout, Oakville", "Week 11 of 12", "Watch, permit", false],
+    ["2231", "Clinic renovation, Brampton", "Week 3 of 10", "On schedule", true],
+    ["2229", "Warehouse addition, Ajax", "Week 18 of 22", "Watch, steel delivery", false],
   ] as const;
   return (
     <div className="overflow-hidden rounded-2xl border border-border bg-background/60">
       <table className="w-full text-left text-[13px]">
         <thead>
-          <tr className="border-b border-border font-mono text-[10.5px] uppercase tracking-[0.16em] text-muted-foreground">
+          <tr className="border-b border-border text-xs text-muted-foreground">
             <th className="px-4 py-3 font-normal">Job</th>
             <th className="px-4 py-3 font-normal">Scope</th>
             <th className="hidden px-4 py-3 font-normal sm:table-cell">Progress</th>
@@ -193,7 +193,7 @@ function ProjectsView() {
         <tbody>
           {rows.map(([id, scope, prog, status, ok]) => (
             <tr key={id} className="border-b border-border/60 last:border-b-0">
-              <td className="px-4 py-3 font-mono text-muted-foreground">{id}</td>
+              <td className="px-4 py-3 text-muted-foreground">{id}</td>
               <td className="px-4 py-3 text-foreground/90">{scope}</td>
               <td className="hidden px-4 py-3 text-muted-foreground sm:table-cell">{prog}</td>
               <td className="px-4 py-3">

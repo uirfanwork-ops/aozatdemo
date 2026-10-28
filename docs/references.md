@@ -16,6 +16,13 @@ Research was done in October 2026 through web search summaries, since the site h
 - Scroll as the demo. Instead of a feature grid, the page pins and reveals: masked headline, word-by-word statement, stacking module cards with a sticky rail, a dashboard that tilts into place, a horizontal day timeline.
 - No invented proof. Billdr and Contractor Foreman lean on counters and review scores. Omni GC has none yet, so the page uses mechanism (every number traces to a source) and a private-rollout posture instead.
 
+## Skills and plugins used or found
+
+- `slopmonster` (installed): every line of page copy linted to 5/5.
+- `frontend-design` (Anthropic plugin directory, fetched from its GitHub source): applied as a design review, see the README.
+- "Skills For Real React/React Native Engineers" (plugin directory): bundles `gsap-scroll-trigger`, `ui-motion`, `css-animations` and `unslop` skills. The closest match to a scroll-craft skill in the catalogue. Not installed in this session; the scroll work uses `motion` and `lenis` directly.
+- `Motion Reel` and `Remotion` (plugin directory): code-rendered video skills, an option if the hero clip is ever re-rendered with more production value.
+
 ## Sources
 
 - Billdr homepage and feature pages: https://www.billdr.ai/ and https://www.billdr.ai/ai-features

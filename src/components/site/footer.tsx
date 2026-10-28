@@ -22,7 +22,7 @@ export function Footer() {
         <Separator className="my-10" />
         <div className="flex flex-col gap-3 text-[12.5px] text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>© 2026 Omni GC. Working name.</p>
-          <p className="font-mono text-[11px] uppercase tracking-[0.16em]">Toronto · Canada</p>
+          <p >Toronto, Canada</p>
         </div>
       </div>
     </footer>
@@ -32,7 +32,7 @@ export function Footer() {
 function FooterCol({ title, links }: { title: string; links: string[] }) {
   return (
     <div>
-      <p className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-muted-foreground">{title}</p>
+      <p className="text-sm font-medium text-foreground/80">{title}</p>
       <ul className="mt-4 space-y-2.5">
         {links.map((l) => (
           <li key={l}>

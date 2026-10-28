@@ -23,7 +23,7 @@ export function Ticker() {
         <ul className="flex shrink-0 animate-marquee items-center gap-10 pr-10 [animation-play-state:running] hover:[animation-play-state:paused]">
           {row.map((item, i) => (
             <li key={i} className="flex items-center gap-10 whitespace-nowrap">
-              <span className="font-mono text-[12px] uppercase tracking-[0.2em] text-muted-foreground">
+              <span className="text-sm text-muted-foreground">
                 {item}
               </span>
               <span className="size-1 rounded-full bg-brand/70" aria-hidden="true" />

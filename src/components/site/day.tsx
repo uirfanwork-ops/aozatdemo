@@ -64,11 +64,11 @@ function Step({ t, h, b, index }: { t: string; h: string; b: string; index: numb
     <article className="relative w-full shrink-0 lg:w-[440px]">
       <div className="hidden items-center gap-3 lg:flex">
         <span className="size-[9px] rounded-full border border-brand bg-background" />
-        <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">{t}</span>
+        <span className="text-sm text-muted-foreground">{t}</span>
       </div>
       <div className="mt-0 rounded-3xl border border-border bg-card p-7 lg:mt-8">
-        <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground lg:hidden">{t}</p>
-        <p className="font-mono text-[11px] text-brand">0{index + 1}</p>
+        <p className="text-sm text-muted-foreground lg:hidden">{t}</p>
+        <p className="text-sm text-brand">Step {index + 1}</p>
         <h3 className="font-display mt-3 text-2xl font-medium tracking-tight">{h}</h3>
         <p className="mt-3 leading-relaxed text-muted-foreground">{b}</p>
       </div>

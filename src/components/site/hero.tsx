@@ -25,17 +25,18 @@ export function Hero() {
       <motion.div style={{ scale: videoScale, y: videoY }} className="absolute inset-0 will-change-transform">
         <video
           className="h-full w-full object-cover"
-          src={media.heroVideo}
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
+          poster="/hero-poster.jpg"
           aria-hidden="true"
-          onError={(e) => {
-            e.currentTarget.style.opacity = "0";
-          }}
-        />
+        >
+          <source src={media.heroVideo} type="video/mp4" />
+          <source src="/hero.webm" type="video/webm" />
+          <source src="/hero.mp4" type="video/mp4" />
+        </video>
       </motion.div>
       <motion.div style={{ opacity: veil }} className="absolute inset-0 bg-[#0b0a09]" />
       <div className="absolute inset-0 bg-[radial-gradient(120%_80%_at_50%_100%,rgba(11,10,9,0.92)_0%,rgba(11,10,9,0.35)_55%,transparent_100%)]" />
@@ -51,7 +52,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease, delay: 0.2 }}
         >
-          <Badge variant="brand" className="px-3 py-1 font-mono text-[11px] uppercase tracking-[0.14em]">Private rollout. Canada and the US</Badge>
+          <Badge variant="brand" className="px-3 py-1 text-xs">Private rollout in Canada and the US</Badge>
         </motion.div>
 
         <MaskedLines

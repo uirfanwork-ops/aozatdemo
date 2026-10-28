@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
 import { Logo } from "@/components/site/logo";
+import { ThemeToggle } from "@/components/site/theme";
 import { cn } from "@/lib/utils";
 
 const links = [
@@ -58,6 +59,7 @@ export function Nav() {
         </nav>
 
         <div className="relative z-10 hidden items-center gap-2 md:flex">
+          <ThemeToggle className="mr-1" />
           <Button variant="ghost" size="sm" asChild>
             <a href="#apply">Sign in</a>
           </Button>
@@ -91,6 +93,7 @@ export function Nav() {
                   ))}
                 </nav>
                 <Separator className="my-6" />
+                <ThemeToggle />
                 <div className="mt-auto flex flex-col gap-3">
                   <Button variant="outline" size="lg" asChild>
                     <a href="#apply">Sign in</a>

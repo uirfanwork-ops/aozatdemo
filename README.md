@@ -24,6 +24,10 @@ npm run build
 npm start
 ```
 
+## Colour modes
+
+A Light / Dark toggle sits in the navigation. Light is white with a blue-to-teal gradient. Dark is near-black with an orange-to-amber gradient, and four sections (the statement, finance, approval and FAQ) stay white as islands. The choice is stored in `localStorage` and applied before paint by an inline script in the layout. The hero fallback clip has a matching render per mode (`public/hero.*` and `public/hero-dark.*`).
+
 ## Walkthrough form
 
 The form posts to `/api/walkthrough`. Set `RESEND_API_KEY` and `WALKTHROUGH_INBOX` (see `.env.example`) to have requests emailed through Resend. Without them the route validates and logs the request so previews still work.

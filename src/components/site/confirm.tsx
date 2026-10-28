@@ -11,7 +11,7 @@ const lines = [
 
 export function Confirm() {
   return (
-    <section className="border-t border-border bg-background py-28 sm:py-36">
+    <section className="island border-t border-border bg-background py-28 text-foreground sm:py-36">
       <div className="container-x grid items-center gap-14 lg:grid-cols-12">
         <div className="order-2 lg:order-1 lg:col-span-7">
           <Reveal>

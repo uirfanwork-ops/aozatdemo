@@ -31,7 +31,7 @@ const faqs = [
 
 export function Faq() {
   return (
-    <section id="faq" className="border-t border-border bg-background py-28 sm:py-36">
+    <section id="faq" className="island border-t border-border bg-background py-28 text-foreground sm:py-36">
       <div className="container-x grid gap-12 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <Reveal>

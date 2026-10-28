@@ -28,7 +28,7 @@ export function PhotoBreak() {
         </div>
         <div className="lg:col-span-7">
           <div className="bg-brand-gradient rounded-[28px] p-[2px] shadow-[0_40px_90px_-50px_var(--brand-glow)]">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[26px] bg-[radial-gradient(90%_70%_at_70%_30%,oklch(0.75_0.1_200)_0%,oklch(0.35_0.08_255)_100%)] sm:aspect-[16/10]">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[26px] bg-[radial-gradient(90%_70%_at_70%_30%,var(--brand-2)_0%,var(--brand)_100%)] sm:aspect-[16/10]">
               <motion.div style={{ y }} className="absolute inset-[-8%] will-change-transform">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img

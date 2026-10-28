@@ -3,7 +3,8 @@ import { imagery } from "@/lib/media";
 
 export function Statement() {
   return (
-    <section className="container-x py-28 sm:py-36 lg:py-44">
+    <section className="island bg-background text-foreground">
+      <div className="container-x py-28 sm:py-36 lg:py-44">
       <div className="grid gap-14 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-8">
           <Reveal>
@@ -26,6 +27,7 @@ export function Statement() {
           </div>
           <p className="mt-3 text-sm text-muted-foreground">The person this was built for.</p>
         </div>
+      </div>
       </div>
     </section>
   );

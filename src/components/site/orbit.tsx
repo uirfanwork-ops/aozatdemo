@@ -56,7 +56,7 @@ export function Orbit() {
                     style={{ left: `${x}%`, top: `${y}%` }}
                   >
                     <div className="animate-[spin_90s_linear_infinite_reverse] motion-reduce:animate-none">
-                      <span className="block whitespace-nowrap rounded-full border border-border bg-white px-3.5 py-1.5 text-sm font-medium shadow-sm">
+                      <span className="block whitespace-nowrap rounded-full border border-border bg-card px-3.5 py-1.5 text-sm font-medium shadow-sm">
                         {n}
                       </span>
                     </div>

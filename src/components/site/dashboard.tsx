@@ -17,7 +17,7 @@ export function Dashboard() {
   const opacity = useTransform(scrollYProgress, [0, 0.6], [0.4, 1]);
 
   return (
-    <section id="dashboard" className="relative border-t border-border bg-background py-28 sm:py-36">
+    <section id="dashboard" className="island relative border-t border-border bg-background py-28 text-foreground sm:py-36">
       <div className="container-x">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div>

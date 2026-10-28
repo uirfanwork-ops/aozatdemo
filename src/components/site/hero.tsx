@@ -33,9 +33,9 @@ export function Hero() {
         <MaskedLines
           as="h1"
           delay={0.35}
-          lines={["One company.", "A hundred moving parts."]}
-          highlight="moving parts."
-          className="mt-6 max-w-[22ch] text-[clamp(2.6rem,6.6vw,6rem)] font-bold leading-[0.98] tracking-[-0.035em] text-foreground"
+          lines={["One AI operator for your", "entire construction operations."]}
+          highlight="construction operations."
+          className="mt-6 max-w-[22ch] text-[clamp(2.4rem,6vw,5.6rem)] font-bold leading-[0.98] tracking-[-0.035em] text-foreground"
         />
 
         <div className="mt-8 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
@@ -45,8 +45,8 @@ export function Hero() {
             transition={{ duration: 0.9, ease, delay: 0.75 }}
             className="max-w-[46ch] text-lg leading-relaxed text-muted-foreground sm:text-xl"
           >
-            Omni GC is one AI employee for your entire construction business. It finds the work,
-            prices it, wins it, delivers it and closes the books. You confirm. It runs.
+            One company, a hundred moving parts. Omni GC finds the work, prices it, wins it,
+            delivers it and closes the books. You confirm. It runs.
           </motion.p>
 
           <motion.div

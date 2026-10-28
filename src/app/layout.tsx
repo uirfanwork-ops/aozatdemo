@@ -12,13 +12,13 @@ const display = Schibsted_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Omni GC. One operator runs the whole company.",
+  title: "Omni GC. One AI operator for your entire construction operations.",
   description:
     "Omni GC is the operating layer for general contractors. Lead generation, estimating, sales, project delivery, client management and finance, run by one person with the machine doing the heavy lifting.",
   metadataBase: new URL("https://omnigc.example.com"),
   openGraph: {
     title: "Omni GC",
-    description: "One operator. The whole construction company.",
+    description: "One AI operator for your entire construction operations.",
     type: "website",
   },
 };

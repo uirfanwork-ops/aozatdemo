@@ -2,6 +2,7 @@ import { Nav } from "@/components/site/nav";
 import { Hero } from "@/components/site/hero";
 import { Ticker } from "@/components/site/ticker";
 import { HowItWorks } from "@/components/site/how-it-works";
+import { Film } from "@/components/site/film";
 import { Outcomes } from "@/components/site/outcomes";
 import { Army } from "@/components/site/army";
 import { Orbit } from "@/components/site/orbit";
@@ -21,6 +22,7 @@ export default function Home() {
       <Ticker />
       <Army />
       <HowItWorks />
+      <Film />
       <Outcomes />
       <Operator />
       <Orbit />

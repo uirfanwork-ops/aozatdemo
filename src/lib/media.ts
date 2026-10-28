@@ -19,15 +19,24 @@ export const media = {
 } as const;
 
 /**
- * The hero explainer (omni-gc-promo.mp4 from the owner's Drive).
- * `local` is tried first; drop the file at public/explainer.mp4. If it is missing,
- * the player falls back to the Drive preview, which needs the file shared as
- * "anyone with the link".
+ * The 90-second Omni GC tour (the four-step promo), self-hosted in public/ as H.264 and a
+ * WebM copy for browsers built without H.264, with its poster frame. The hero dialog and
+ * the tour section both play it. If the file ever fails to load, the dialog falls back to
+ * the Drive preview, which still holds the earlier 30-second cut.
  */
 export const explainer = {
   local: "/explainer.mp4",
+  webm: "/explainer.webm",
+  poster: "/explainer-poster.jpg",
   driveId: "1nmJY8i5Up1Gwhci_YCMgpSejSx4tCO6y",
 } as const;
+
+/** The tour file this browser can play: H.264 where it is supported, otherwise WebM. */
+export function explainerSrc() {
+  if (typeof document === "undefined") return explainer.local;
+  const probe = document.createElement("video");
+  return probe.canPlayType('video/mp4; codecs="avc1.640028, mp4a.40.2"') ? explainer.local : explainer.webm;
+}
 
 /** Photorealistic staff imagery generated in the owner's Magnific library, self-hosted at 1024px. */
 export const imagery = {

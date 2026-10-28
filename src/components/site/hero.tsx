@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MaskedLines } from "@/components/site/reveal";
 import { media } from "@/lib/media";
-import { useTheme } from "@/components/site/theme";
 
 const ease = [0.2, 0.8, 0.2, 1] as const;
 
@@ -19,8 +18,6 @@ export function Hero() {
   const panelScale = useTransform(scrollYProgress, [0, 1], [1, 1.04]);
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const { theme } = useTheme();
-  const clip = theme === "dark" ? "hero-dark" : "hero";
 
   return (
     <section ref={ref} className="bg-wash relative overflow-hidden bg-background pt-36 sm:pt-44">
@@ -82,21 +79,20 @@ export function Hero() {
       >
         <motion.div style={{ y: panelY, scale: panelScale }} className="will-change-transform">
           <div className="bg-brand-gradient rounded-[28px] p-[2px] shadow-[0_40px_90px_-40px_var(--brand-glow)]">
-            <div className="relative aspect-[16/9] overflow-hidden rounded-[26px] bg-[#0a1326] dark:bg-[#0d0c0b] sm:aspect-[21/9]">
+            <div className="relative aspect-[16/9] overflow-hidden rounded-[26px] bg-[#0d0c0b] sm:aspect-[21/9]">
               <video
-                key={clip}
                 className="h-full w-full object-cover"
                 autoPlay
                 muted
                 loop
                 playsInline
                 preload="auto"
-                poster={`/${clip === "hero" ? "hero-poster" : "hero-poster-dark"}.jpg`}
+                poster="/hero-poster.jpg"
                 aria-hidden="true"
               >
                 <source src={media.heroVideo} type="video/mp4" />
-                <source src={`/${clip}.webm`} type="video/webm" />
-                <source src={`/${clip}.mp4`} type="video/mp4" />
+                <source src="/hero.webm" type="video/webm" />
+                <source src="/hero.mp4" type="video/mp4" />
               </video>
               <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(14,23,38,0.55)_0%,transparent_45%)]" />
             </div>

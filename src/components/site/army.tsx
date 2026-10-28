@@ -43,9 +43,9 @@ export function Army() {
             </motion.h2>
             <motion.h2
               style={{ opacity: oneOpacity, scale: oneScale }}
-              className="absolute inset-x-0 top-1/2 -translate-y-1/2 text-[clamp(3rem,9vw,8.5rem)] font-bold uppercase leading-none tracking-[-0.04em]"
+              className="absolute inset-x-0 top-1/2 mx-auto max-w-[14ch] -translate-y-1/2 text-[clamp(2.4rem,6.5vw,5.8rem)] font-bold uppercase leading-[0.95] tracking-[-0.03em]"
             >
-              One <span className="text-brand-gradient">operator.</span>
+              Now you can run it with only <span className="text-brand-gradient">one operator.</span>
             </motion.h2>
           </div>
         </div>

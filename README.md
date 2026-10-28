@@ -24,9 +24,9 @@ npm run build
 npm start
 ```
 
-## Colour modes
+## Colour
 
-A Light / Dark toggle sits in the navigation. Light is white with a blue-to-teal gradient. Dark is near-black with an orange-to-amber gradient, and four sections (the statement, finance, approval and FAQ) stay white as islands. The choice is stored in `localStorage` and applied before paint by an inline script in the layout. The hero fallback clip has a matching render per mode (`public/hero.*` and `public/hero-dark.*`).
+Dark only: near-black surfaces with an orange-to-amber gradient. Four sections (the statement, finance, approval and FAQ) sit white as islands via the `.island` class, which re-declares the light tokens locally.
 
 ## Walkthrough form
 
@@ -38,7 +38,7 @@ The form posts to `/api/walkthrough`. Set `RESEND_API_KEY` and `WALKTHROUGH_INBO
 
 ## Media
 
-Hero footage and photography are licensed Freepik stock assets pulled through the Magnific library. The URLs in `src/lib/media.ts` are signed and expire in roughly a year. The hero `<video>` lists the licensed footage first and two self-hosted renders second (`public/hero.webm`, `public/hero.mp4`, poster `public/hero-poster.jpg`). Browsers fall through `<source>` entries on a network failure, so the page always has moving footage. The self-hosted clip is a 14 second navy-and-teal structural-frame animation rendered from `docs/hero-render/scene.html` with Playwright and encoded with ffmpeg. Playback of the fallback was verified in headless Chromium (ready state 4, 1920x1080, currentTime advancing). The licensed footage could not be loaded from the build environment because `videocdn.cdnpk.net` and `pikaso.cdnpk.net` are outside its allowed network. Before launch, download the files from the Magnific library links in that file, drop them in `public/`, and point the constants at the local paths.
+Hero footage and photography are licensed Freepik stock assets pulled through the Magnific library. The URLs in `src/lib/media.ts` are signed and expire in roughly a year. The hero `<video>` lists the licensed footage first and two self-hosted renders second (`public/hero.webm`, `public/hero.mp4`, poster `public/hero-poster.jpg`). Browsers fall through `<source>` entries on a network failure, so the page always has moving footage. The self-hosted clip is a 14 second structural-frame animation rendered from `docs/hero-render/scene.html` with Playwright and encoded with ffmpeg. Playback of the fallback was verified in headless Chromium (ready state 4, 1920x1080, currentTime advancing). The licensed footage could not be loaded from the build environment because `videocdn.cdnpk.net` and `pikaso.cdnpk.net` are outside its allowed network. Before launch, download the files from the Magnific library links in that file, drop them in `public/`, and point the constants at the local paths.
 
 ## Design review
 

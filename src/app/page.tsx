@@ -1,12 +1,12 @@
 import { Nav } from "@/components/site/nav";
 import { Hero } from "@/components/site/hero";
 import { Ticker } from "@/components/site/ticker";
-import { Statement } from "@/components/site/statement";
+import { HowItWorks } from "@/components/site/how-it-works";
+import { Outcomes } from "@/components/site/outcomes";
 import { Army } from "@/components/site/army";
 import { Orbit } from "@/components/site/orbit";
 import { Confirm } from "@/components/site/confirm";
 import { Operator } from "@/components/site/operator";
-import { PhotoBreak } from "@/components/site/photo-break";
 import { Day } from "@/components/site/day";
 import { Trust } from "@/components/site/trust";
 import { Apply } from "@/components/site/apply";
@@ -21,10 +21,10 @@ export default function Home() {
       <Hero />
       <Ticker />
       <Army />
-      <Statement />
+      <HowItWorks />
+      <Outcomes />
       <Operator />
       <Orbit />
-      <PhotoBreak />
       <Day />
       <Confirm />
       <Trust />

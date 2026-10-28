@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:#0d0c0b;overflow:hidden}canvas{display:block}</style></head>
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:#0a1326;overflow:hidden}canvas{display:block}</style></head>
 <body><canvas id="c" width="1920" height="1080"></canvas>
 <script>
 // Slow aerial drift over a steel structural frame at dusk. Deterministic, loops at 14s.
@@ -14,12 +14,12 @@ function proj(x,y,z,t){ // orbiting camera
   const camY=22-y, dist=rz+46;
   const f=1500/dist; return {X:W/2+rx*f, Y:H*0.62-(y-7)*f*0.9+rz*f*0.32, f, d:dist};
 }
-function line(a,b,alpha,w){g.strokeStyle=`rgba(236,231,223,${alpha})`;g.lineWidth=w;g.beginPath();g.moveTo(a.X,a.Y);g.lineTo(b.X,b.Y);g.stroke();}
+function line(a,b,alpha,w){g.strokeStyle=`rgba(225,238,255,${alpha})`;g.lineWidth=w;g.beginPath();g.moveTo(a.X,a.Y);g.lineTo(b.X,b.Y);g.stroke();}
 function frame(t){
   // sky / dusk gradient
-  const sky=g.createLinearGradient(0,0,0,H);sky.addColorStop(0,'#0b0a0a');sky.addColorStop(.55,'#161210');sky.addColorStop(1,'#0c0b0a');g.fillStyle=sky;g.fillRect(0,0,W,H);
+  const sky=g.createLinearGradient(0,0,0,H);sky.addColorStop(0,'#0a1326');sky.addColorStop(.55,'#102445');sky.addColorStop(1,'#0a1630');g.fillStyle=sky;g.fillRect(0,0,W,H);
   // warm horizon glow drifting
-  const gx=W*0.68+Math.sin(t*0.25)*90;const glow=g.createRadialGradient(gx,H*0.5,20,gx,H*0.5,900);glow.addColorStop(0,'rgba(227,104,42,0.28)');glow.addColorStop(.4,'rgba(227,104,42,0.08)');glow.addColorStop(1,'rgba(0,0,0,0)');g.fillStyle=glow;g.fillRect(0,0,W,H);
+  const gx=W*0.68+Math.sin(t*0.25)*90;const glow=g.createRadialGradient(gx,H*0.5,20,gx,H*0.5,900);glow.addColorStop(0,'rgba(43,179,168,0.30)');glow.addColorStop(.4,'rgba(43,179,168,0.10)');glow.addColorStop(1,'rgba(0,0,0,0)');g.fillStyle=glow;g.fillRect(0,0,W,H);
   // ground plane grid
   for(let i=-8;i<=8;i++){const a=proj((i)*sx,0,-rows*sz,t),b=proj(i*sx,0,rows*sz,t);line(a,b,0.05,1);}
   for(let j=-6;j<=6;j++){const a=proj(-bays*sx,0,j*sz,t),b=proj(bays*sx,0,j*sz,t);line(a,b,0.05,1);}
@@ -35,9 +35,9 @@ function frame(t){
   // crane boom silhouette
   const cb=proj(-6,0,-18,t),ct=proj(-6,24,-18,t),ce=proj(16,24,-18,t);line(cb,ct,.55,3);line(ct,ce,.5,2.4);line(proj(-6,27,-18,t),proj(10,24,-18,t),.35,1);
   // light sweep
-  const lx=((t*0.11)%1.4-0.2)*W;const sw=g.createLinearGradient(lx-260,0,lx+260,0);sw.addColorStop(0,'rgba(255,255,255,0)');sw.addColorStop(.5,'rgba(255,214,170,0.07)');sw.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=sw;g.fillRect(0,0,W,H);
+  const lx=((t*0.11)%1.4-0.2)*W;const sw=g.createLinearGradient(lx-260,0,lx+260,0);sw.addColorStop(0,'rgba(255,255,255,0)');sw.addColorStop(.5,'rgba(190,235,255,0.07)');sw.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=sw;g.fillRect(0,0,W,H);
   // dust
-  dust.forEach(p=>{const y=(p.y - t*p.s*40)%H;const yy=y<0?y+H:y;const a=p.a*(0.6+0.4*Math.sin(t*1.3+p.p));g.fillStyle=`rgba(236,222,205,${a})`;g.beginPath();g.arc(p.x+Math.sin(t*0.4+p.p)*12,yy,p.r,0,6.28);g.fill();});
+  dust.forEach(p=>{const y=(p.y - t*p.s*40)%H;const yy=y<0?y+H:y;const a=p.a*(0.6+0.4*Math.sin(t*1.3+p.p));g.fillStyle=`rgba(210,235,255,${a})`;g.beginPath();g.arc(p.x+Math.sin(t*0.4+p.p)*12,yy,p.r,0,6.28);g.fill();});
   // vignette
   const v=g.createRadialGradient(W/2,H/2,H*0.35,W/2,H/2,H*0.95);v.addColorStop(0,'rgba(0,0,0,0)');v.addColorStop(1,'rgba(0,0,0,0.65)');g.fillStyle=v;g.fillRect(0,0,W,H);
 }

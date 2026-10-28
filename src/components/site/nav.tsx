@@ -38,7 +38,7 @@ export function Nav() {
         <div
           className={cn(
             "pointer-events-none absolute inset-0 border-b border-transparent transition-[opacity,border-color] duration-500",
-            scrolled ? "border-border/80 bg-background/70 opacity-100 backdrop-blur-xl" : "opacity-0",
+            scrolled ? "border-border bg-background/75 opacity-100 backdrop-blur-xl" : "opacity-0",
           )}
         />
         <Link href="/" className="relative z-10 text-foreground" aria-label="Omni GC home">
@@ -61,7 +61,7 @@ export function Nav() {
           <Button variant="ghost" size="sm" asChild>
             <a href="#apply">Sign in</a>
           </Button>
-          <Button size="sm" asChild>
+          <Button variant="brand" size="sm" asChild>
             <a href="#apply">
               Request a walkthrough
               <ArrowUpRight className="transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
@@ -95,7 +95,7 @@ export function Nav() {
                   <Button variant="outline" size="lg" asChild>
                     <a href="#apply">Sign in</a>
                   </Button>
-                  <Button size="lg" asChild>
+                  <Button variant="brand" size="lg" asChild>
                     <a href="#apply">Request a walkthrough</a>
                   </Button>
                 </div>

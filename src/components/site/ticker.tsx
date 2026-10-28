@@ -26,7 +26,7 @@ export function Ticker() {
               <span className="text-sm text-muted-foreground">
                 {item}
               </span>
-              <span className="size-1 rounded-full bg-brand/70" aria-hidden="true" />
+              <span className="size-1.5 rounded-full bg-brand-gradient" aria-hidden="true" />
             </li>
           ))}
         </ul>

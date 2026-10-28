@@ -169,13 +169,13 @@ function StackCard({
     <div className={cn("sticky top-24 pb-8", isLast ? "lg:pb-32" : "")} style={{ zIndex: index + 1 }}>
       <motion.article
         style={{ scale }}
-        className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-[0_40px_80px_-40px_rgba(0,0,0,0.8)] will-change-transform"
+        className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-[0_30px_70px_-40px_rgba(15,23,42,0.35)] will-change-transform"
       >
-        <motion.div style={{ opacity: dim }} className="pointer-events-none absolute inset-0 z-10 bg-background" />
+        <motion.div style={{ opacity: dim }} className="pointer-events-none absolute inset-0 z-10 bg-white" />
         <div className="grid gap-8 p-7 sm:p-9 lg:grid-cols-[1fr_auto]">
           <div className="max-w-[48ch]">
             <div className="flex items-center gap-3">
-              <span className="flex size-10 items-center justify-center rounded-xl border border-border bg-foreground/[0.03] text-brand">
+              <span className="bg-brand-gradient flex size-10 items-center justify-center rounded-xl text-white">
                 <Icon className="size-[18px]" />
               </span>
               <span className="text-sm text-muted-foreground">{module.title}</span>
@@ -186,7 +186,7 @@ function StackCard({
               {module.detail.map((d) => (
                 <li
                   key={d}
-                  className="rounded-full border border-border bg-foreground/[0.03] px-3 py-1.5 text-[13px] text-foreground/80"
+                  className="rounded-full border border-border bg-secondary px-3 py-1.5 text-[13px] text-foreground/80"
                 >
                   {d}
                 </li>
@@ -203,7 +203,7 @@ function StackCard({
 /** Small code-drawn UI vignettes so each module card shows the product, not a stock icon. */
 function ModulePreview({ index }: { index: number }) {
   const base =
-    "relative w-full overflow-hidden rounded-2xl border border-border bg-background/70 p-4 lg:w-[300px] xl:w-[340px]";
+    "relative w-full overflow-hidden rounded-2xl border border-border bg-secondary/60 p-4 lg:w-[300px] xl:w-[340px]";
   if (index === 0)
     return (
       <div className={base}>
@@ -240,8 +240,8 @@ function ModulePreview({ index }: { index: number }) {
                 <span>{l}</span>
                 <span>{w}%</span>
               </div>
-              <div className="mt-1 h-1 rounded-full bg-foreground/10">
-                <div className="h-1 rounded-full bg-steel" style={{ width: `${w}%` }} />
+              <div className="mt-1 h-1 rounded-full bg-foreground/8">
+                <div className="bg-brand-gradient h-1 rounded-full" style={{ width: `${w}%` }} />
               </div>
             </div>
           ))}
@@ -259,7 +259,7 @@ function ModulePreview({ index }: { index: number }) {
               key={i}
               className={cn(
                 "aspect-square rounded-md border border-border/60",
-                [2, 5, 9, 12, 16, 19, 23, 26].includes(i) && "border-brand/40 bg-brand/20",
+                [2, 5, 9, 12, 16, 19, 23, 26].includes(i) && "border-transparent bg-brand-gradient opacity-80",
                 [7, 14, 21, 27].includes(i) && "bg-foreground/[0.06]",
               )}
             />
@@ -284,7 +284,7 @@ function ModulePreview({ index }: { index: number }) {
               <span className="w-[108px] truncate text-[11.5px] text-muted-foreground">{l}</span>
               <div className="relative h-2 flex-1 rounded-full bg-foreground/[0.06]">
                 <div
-                  className={cn("absolute h-2 rounded-full", done ? "bg-foreground/60" : "bg-brand/80")}
+                  className={cn("absolute h-2 rounded-full", done ? "bg-foreground/50" : "bg-brand-gradient")}
                   style={{ left: `${s}%`, width: `${w}%` }}
                 />
               </div>
@@ -319,8 +319,8 @@ function ModulePreview({ index }: { index: number }) {
       <Row label="Cash position" value="Reconciled 11:58 pm" />
       <div className="mt-3 flex items-end gap-1.5">
         {[42, 48, 44, 60, 58, 66, 70, 64, 78, 82, 76, 90].map((h, i) => (
-          <div key={i} className="flex-1 rounded-sm bg-foreground/[0.08]" style={{ height: `${h}px` }}>
-            <div className="h-full w-full rounded-sm bg-gradient-to-t from-brand/70 to-brand/20" style={{ opacity: i > 8 ? 1 : 0.55 }} />
+          <div key={i} className="flex-1 rounded-sm bg-foreground/[0.06]" style={{ height: `${h}px` }}>
+            <div className="bg-brand-gradient h-full w-full rounded-sm" style={{ opacity: i > 8 ? 1 : 0.45 }} />
           </div>
         ))}
       </div>

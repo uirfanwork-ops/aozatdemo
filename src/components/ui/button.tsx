@@ -9,9 +9,9 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow-[0_1px_0_0_rgb(255_255_255/.12)_inset,0_10px_30px_-12px_rgb(0_0_0/.6)] hover:-translate-y-px hover:bg-primary/90 hover:shadow-[0_1px_0_0_rgb(255_255_255/.16)_inset,0_18px_40px_-14px_rgb(0_0_0/.7)]",
+          "bg-primary text-primary-foreground shadow-[0_10px_30px_-12px_rgb(15_23_42/.45)] hover:-translate-y-px hover:bg-primary/90 hover:shadow-[0_18px_40px_-14px_rgb(15_23_42/.5)]",
         brand:
-          "bg-brand text-brand-foreground shadow-[0_1px_0_0_rgb(255_255_255/.18)_inset,0_12px_32px_-12px_var(--brand-glow)] hover:-translate-y-px hover:brightness-105 hover:shadow-[0_1px_0_0_rgb(255_255_255/.22)_inset,0_20px_44px_-14px_var(--brand-glow)]",
+          "bg-brand-gradient text-brand-foreground shadow-[0_1px_0_0_rgb(255_255_255/.25)_inset,0_12px_32px_-12px_var(--brand-glow)] hover:-translate-y-px hover:brightness-105 hover:shadow-[0_1px_0_0_rgb(255_255_255/.3)_inset,0_20px_44px_-14px_var(--brand-glow)]",
         destructive:
           "bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:bg-destructive/60 dark:focus-visible:ring-destructive/40",
         outline:

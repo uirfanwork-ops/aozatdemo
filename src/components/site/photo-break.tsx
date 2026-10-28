@@ -9,34 +9,39 @@ import { media } from "@/lib/media";
 export function PhotoBreak() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], ["-12%", "12%"]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1.15, 1.0]);
+  const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
 
   return (
-    <section ref={ref} className="relative h-[90svh] min-h-[560px] overflow-hidden bg-[radial-gradient(90%_70%_at_70%_30%,oklch(0.32_0.06_45)_0%,oklch(0.14_0.004_60)_100%)]">
-      <motion.div style={{ y, scale }} className="absolute inset-[-10%] will-change-transform">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={media.craneSunset}
-          alt="Tower crane working on a site at sunset, dust in the air"
-          className="h-full w-full object-cover"
-          loading="lazy"
-          onError={(e) => { e.currentTarget.style.opacity = "0"; }}
-        />
-      </motion.div>
-      <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(11,10,9,0.95)_0%,rgba(11,10,9,0.35)_45%,rgba(11,10,9,0.55)_100%)]" />
-      <div className="grain absolute inset-0" />
-      <div className="container-x relative z-10 flex h-full flex-col justify-end pb-16 sm:pb-20">
-        <Reveal>
-          <p className="eyebrow">How it is built</p>
-          <blockquote className="font-display mt-6 max-w-[24ch] text-[clamp(1.8rem,4.2vw,3.6rem)] font-medium leading-[1.1] tracking-[-0.025em]">
-            It learned the trade from people who have been burned by a bad draw schedule. It does
-            not guess at a number it cannot show you.
-          </blockquote>
-          <p className="mt-6 text-sm text-foreground/70">
-            Every figure in Omni GC traces back to a source document, a bank line or a field entry.
-          </p>
-        </Reveal>
+    <section ref={ref} className="border-t border-border bg-background py-28 sm:py-36">
+      <div className="container-x grid items-center gap-12 lg:grid-cols-12">
+        <div className="lg:col-span-5">
+          <Reveal>
+            <p className="eyebrow">How it is built</p>
+            <blockquote className="font-display mt-6 text-[clamp(1.8rem,3.6vw,3.2rem)] font-medium leading-[1.1] tracking-[-0.025em]">
+              It learned the trade from people who have been burned by a bad draw schedule. It does
+              not guess at a number it cannot show you.
+            </blockquote>
+            <p className="mt-6 text-muted-foreground">
+              Every figure in Omni GC traces back to a source document, a bank line or a field entry.
+            </p>
+          </Reveal>
+        </div>
+        <div className="lg:col-span-7">
+          <div className="bg-brand-gradient rounded-[28px] p-[2px] shadow-[0_40px_90px_-50px_var(--brand-glow)]">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[26px] bg-[radial-gradient(90%_70%_at_70%_30%,oklch(0.75_0.1_200)_0%,oklch(0.35_0.08_255)_100%)] sm:aspect-[16/10]">
+              <motion.div style={{ y }} className="absolute inset-[-8%] will-change-transform">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={media.craneSunset}
+                  alt="Tower crane working on a site at sunset, dust in the air"
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                  onError={(e) => { e.currentTarget.style.opacity = "0"; }}
+                />
+              </motion.div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

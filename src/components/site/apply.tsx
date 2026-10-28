@@ -33,10 +33,9 @@ export function Apply() {
     <section id="apply" className="relative border-t border-border bg-background py-28 sm:py-36">
       <div className="container-x">
         <Reveal>
-          <div className="relative overflow-hidden rounded-[28px] border border-border bg-card">
-            <div className="pointer-events-none absolute -right-40 -top-40 size-[520px] rounded-full bg-brand/15 blur-[120px]" />
-            <div className="grain absolute inset-0" />
-            <div className="relative grid gap-12 p-8 sm:p-12 lg:grid-cols-2 lg:p-16">
+          <div className="bg-wash relative overflow-hidden rounded-[28px] border border-border bg-card">
+            <div className="pointer-events-none absolute -right-40 -top-40 size-[520px] rounded-full bg-brand-2/20 blur-[120px]" />
+                        <div className="relative grid gap-12 p-8 sm:p-12 lg:grid-cols-2 lg:p-16">
               <div>
                 <p className="eyebrow">Private rollout</p>
                 <h2 className="mt-6 max-w-[14ch] text-[clamp(2rem,4.6vw,4rem)] font-medium leading-[1.04]">
@@ -53,7 +52,7 @@ export function Apply() {
                     "An owner who wants to get out of the inbox",
                   ].map((t) => (
                     <li key={t} className="flex items-start gap-3">
-                      <span className="mt-[3px] flex size-5 items-center justify-center rounded-full bg-brand/15 text-brand">
+                      <span className="bg-brand-gradient mt-[3px] flex size-5 items-center justify-center rounded-full text-white">
                         <Check className="size-3" />
                       </span>
                       {t}
@@ -67,13 +66,13 @@ export function Apply() {
                 onSubmit={submit}
               >
                 <label className="sr-only" htmlFor="name">Name</label>
-                <Input className="h-12 rounded-xl px-4" id="name" name="name" placeholder="Your name" required autoComplete="name" />
+                <Input className="h-12 rounded-xl bg-white px-4" id="name" name="name" placeholder="Your name" required autoComplete="name" />
                 <label className="sr-only" htmlFor="company">Company</label>
-                <Input className="h-12 rounded-xl px-4" id="company" name="company" placeholder="Company" required autoComplete="organization" />
+                <Input className="h-12 rounded-xl bg-white px-4" id="company" name="company" placeholder="Company" required autoComplete="organization" />
                 <label className="sr-only" htmlFor="email">Work email</label>
-                <Input className="h-12 rounded-xl px-4" id="email" name="email" type="email" placeholder="Work email" required autoComplete="email" />
+                <Input className="h-12 rounded-xl bg-white px-4" id="email" name="email" type="email" placeholder="Work email" required autoComplete="email" />
                 <label className="sr-only" htmlFor="revenue">Annual revenue</label>
-                <Input className="h-12 rounded-xl px-4" id="revenue" name="revenue" placeholder="Approximate annual revenue" />
+                <Input className="h-12 rounded-xl bg-white px-4" id="revenue" name="revenue" placeholder="Approximate annual revenue" />
                 <Button type="submit" variant="brand" size="xl" className="mt-2 w-full" disabled={sent || state === "sending"}>
                   {sent ? "Received. We will be in touch." : state === "sending" ? "Sending" : "Request a walkthrough"}
                   {!sent && <ArrowRight className="transition-transform duration-300 group-hover/btn:translate-x-1" />}

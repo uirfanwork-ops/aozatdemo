@@ -12,7 +12,7 @@ Research was done in October 2026 through web search summaries, since the site h
 
 ## Design direction that came out of this
 
-- Dark, warm, editorial. Every reference site is white with blue or green accents. A charcoal and bone palette with one burnt-orange brand colour separates Omni GC on first load.
+- White with a blue-to-teal gradient as the only colour, at the owner's request. The references also sit on white, so the separation comes from type scale, the single gradient used as a material (buttons, frames, data) rather than a wash on everything, and the scroll storytelling below.
 - Scroll as the demo. Instead of a feature grid, the page pins and reveals: masked headline, word-by-word statement, stacking module cards with a sticky rail, a dashboard that tilts into place, a horizontal day timeline.
 - No invented proof. Billdr and Contractor Foreman lean on counters and review scores. Omni GC has none yet, so the page uses mechanism (every number traces to a source) and a private-rollout posture instead.
 

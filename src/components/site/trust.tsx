@@ -48,7 +48,7 @@ export function Trust() {
             </p>
           </Reveal>
           <Reveal delay={0.2} className="mt-10">
-            <div className="relative overflow-hidden rounded-3xl border border-border bg-[radial-gradient(80%_60%_at_30%_20%,oklch(0.3_0.03_50)_0%,oklch(0.17_0.006_60)_100%)]">
+            <div className="relative overflow-hidden rounded-3xl border border-border bg-[radial-gradient(80%_60%_at_30%_20%,oklch(0.9_0.04_200)_0%,oklch(0.78_0.08_250)_100%)]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={media.concreteBeams}
@@ -57,7 +57,7 @@ export function Trust() {
                 loading="lazy"
           onError={(e) => { e.currentTarget.style.opacity = "0"; }}
               />
-              <div className="grain absolute inset-0" />
+              
             </div>
           </Reveal>
         </div>
@@ -65,7 +65,7 @@ export function Trust() {
           {points.map((p) => (
             <Card key={p.h} className="h-full gap-0 py-0 shadow-none">
                 <CardContent className="flex h-full flex-col p-7">
-                  <span className="flex size-10 items-center justify-center rounded-xl border border-border bg-foreground/[0.03] text-brand">
+                  <span className="bg-brand-gradient flex size-10 items-center justify-center rounded-xl text-white">
                     <p.icon className="size-[18px]" />
                   </span>
                   <h3 className="font-display mt-8 text-xl font-medium tracking-tight">{p.h}</h3>

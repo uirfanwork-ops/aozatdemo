@@ -42,10 +42,10 @@ export function Dashboard() {
             className="will-change-transform"
           >
             <Tabs defaultValue="finance" className="gap-6">
-              <TabsList className="h-auto rounded-full border p-1">
-                <TabsTrigger value="finance" className="h-9 rounded-full px-4 data-[state=active]:bg-foreground data-[state=active]:text-background">Finance</TabsTrigger>
-                <TabsTrigger value="pipeline" className="h-9 rounded-full px-4 data-[state=active]:bg-foreground data-[state=active]:text-background">Pipeline</TabsTrigger>
-                <TabsTrigger value="projects" className="h-9 rounded-full px-4 data-[state=active]:bg-foreground data-[state=active]:text-background">Projects</TabsTrigger>
+              <TabsList className="h-auto rounded-full border bg-secondary p-1">
+                <TabsTrigger value="finance" className="h-9 rounded-full px-4 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Finance</TabsTrigger>
+                <TabsTrigger value="pipeline" className="h-9 rounded-full px-4 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Pipeline</TabsTrigger>
+                <TabsTrigger value="projects" className="h-9 rounded-full px-4 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Projects</TabsTrigger>
               </TabsList>
               <Frame>
                 <TabsContent value="finance">
@@ -68,8 +68,8 @@ export function Dashboard() {
 
 function Frame({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative overflow-hidden rounded-[22px] border border-border bg-card shadow-[0_60px_120px_-50px_rgba(0,0,0,0.9)]">
-      <div className="flex items-center gap-2 border-b border-border px-5 py-3">
+    <div className="relative overflow-hidden rounded-[22px] border border-border bg-card shadow-[0_50px_100px_-50px_rgba(15,23,42,0.35)]">
+      <div className="flex items-center gap-2 border-b border-border bg-secondary/60 px-5 py-3">
         <span className="size-2.5 rounded-full bg-foreground/15" />
         <span className="size-2.5 rounded-full bg-foreground/15" />
         <span className="size-2.5 rounded-full bg-foreground/15" />
@@ -92,7 +92,7 @@ function Stat({
   up?: boolean;
 }) {
   return (
-    <div className="rounded-2xl border border-border bg-background/60 p-4 sm:p-5">
+    <div className="rounded-2xl border border-border bg-secondary/50 p-4 sm:p-5">
       <p className="text-xs text-muted-foreground">{label}</p>
       <p className="font-display mt-3 text-2xl font-medium tracking-tight sm:text-3xl">{value}</p>
       <p className={cn("mt-2 flex items-center gap-1 text-[12px]", up ? "text-steel" : "text-brand")}>
@@ -113,20 +113,20 @@ function FinanceView() {
         <Stat label="Receivables over 60 days" value="$212K" delta="2 invoices flagged" />
         <Stat label="Backlog" value="$9.6M" delta="Across 11 active jobs" up />
       </div>
-      <div className="rounded-2xl border border-border bg-background/60 p-5 lg:col-span-8">
+      <div className="rounded-2xl border border-border bg-secondary/50 p-5 lg:col-span-8">
         <div className="flex items-center justify-between">
           <p className="text-xs text-muted-foreground">Billed vs. cost, trailing 12 months</p>
           <div className="flex gap-4 text-[11.5px] text-muted-foreground">
             <span className="flex items-center gap-1.5"><span className="size-2 rounded-sm bg-foreground/60" />Billed</span>
-            <span className="flex items-center gap-1.5"><span className="size-2 rounded-sm bg-brand" />Cost</span>
+            <span className="flex items-center gap-1.5"><span className="bg-brand-gradient size-2 rounded-sm" />Cost</span>
           </div>
         </div>
         <div className="mt-6 flex h-[220px] items-end gap-2 sm:gap-3">
           {bars.map((h, i) => (
             <div key={i} className="flex flex-1 flex-col items-center gap-2">
               <div className="flex w-full items-end gap-[3px]" style={{ height: 190 }}>
-                <div className="flex-1 rounded-t-sm bg-foreground/55" style={{ height: `${h}%` }} />
-                <div className="flex-1 rounded-t-sm bg-brand/85" style={{ height: `${h * 0.72}%` }} />
+                <div className="flex-1 rounded-t-sm bg-foreground/35" style={{ height: `${h}%` }} />
+                <div className="bg-brand-gradient flex-1 rounded-t-sm" style={{ height: `${h * 0.72}%` }} />
               </div>
               <span className="text-[11px] text-muted-foreground">{months[i]}</span>
             </div>
@@ -152,7 +152,7 @@ function PipelineView() {
   return (
     <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
       {cols.map((c) => (
-        <div key={c.name} className="rounded-2xl border border-border bg-background/60 p-3">
+        <div key={c.name} className="rounded-2xl border border-border bg-secondary/50 p-3">
           <div className="flex items-center justify-between px-1 pb-2">
             <p className="text-xs text-muted-foreground">{c.name}</p>
             <span className="text-xs text-muted-foreground">{c.items.length}</span>
@@ -180,7 +180,7 @@ function ProjectsView() {
     ["2229", "Warehouse addition, Ajax", "Week 18 of 22", "Watch, steel delivery", false],
   ] as const;
   return (
-    <div className="overflow-hidden rounded-2xl border border-border bg-background/60">
+    <div className="overflow-hidden rounded-2xl border border-border bg-secondary/50">
       <table className="w-full text-left text-[13px]">
         <thead>
           <tr className="border-b border-border text-xs text-muted-foreground">

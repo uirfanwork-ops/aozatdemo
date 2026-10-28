@@ -100,7 +100,7 @@ export function Operator() {
               </ol>
               <div className="mt-10 h-px w-full bg-border">
                 <motion.div
-                  className="h-px origin-left bg-accent"
+                  className="h-px origin-left bg-brand"
                   style={{ scaleX: scrollYProgress }}
                 />
               </div>
@@ -176,7 +176,7 @@ function StackCard({
         <div className="grid gap-8 p-7 sm:p-9 lg:grid-cols-[1fr_auto]">
           <div className="max-w-[48ch]">
             <div className="flex items-center gap-3">
-              <span className="flex size-10 items-center justify-center rounded-xl border border-border bg-foreground/[0.03] text-accent">
+              <span className="flex size-10 items-center justify-center rounded-xl border border-border bg-foreground/[0.03] text-brand">
                 <Icon className="size-[18px]" />
               </span>
               <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
@@ -221,7 +221,7 @@ function ModulePreview({ index }: { index: number }) {
               <p className="text-[12.5px] text-foreground/90">{a}</p>
               <p className="text-[11.5px] text-muted-foreground">{b}</p>
             </div>
-            <span className="font-mono text-[11px] text-accent">{c}</span>
+            <span className="font-mono text-[11px] text-brand">{c}</span>
           </div>
         ))}
       </div>
@@ -262,7 +262,7 @@ function ModulePreview({ index }: { index: number }) {
               key={i}
               className={cn(
                 "aspect-square rounded-md border border-border/60",
-                [2, 5, 9, 12, 16, 19, 23, 26].includes(i) && "border-accent/40 bg-accent/20",
+                [2, 5, 9, 12, 16, 19, 23, 26].includes(i) && "border-brand/40 bg-brand/20",
                 [7, 14, 21, 27].includes(i) && "bg-foreground/[0.06]",
               )}
             />
@@ -287,14 +287,14 @@ function ModulePreview({ index }: { index: number }) {
               <span className="w-[108px] truncate text-[11.5px] text-muted-foreground">{l}</span>
               <div className="relative h-2 flex-1 rounded-full bg-foreground/[0.06]">
                 <div
-                  className={cn("absolute h-2 rounded-full", done ? "bg-foreground/60" : "bg-accent/80")}
+                  className={cn("absolute h-2 rounded-full", done ? "bg-foreground/60" : "bg-brand/80")}
                   style={{ left: `${s}%`, width: `${w}%` }}
                 />
               </div>
             </div>
           ))}
         </div>
-        <p className="mt-3 text-[11.5px] text-accent">Change order 07 issued 2:14 pm</p>
+        <p className="mt-3 text-[11.5px] text-brand">Change order 07 issued 2:14 pm</p>
       </div>
     );
   if (index === 4)
@@ -309,7 +309,7 @@ function ModulePreview({ index }: { index: number }) {
           ].map(([a, b]) => (
             <div key={a} className="flex items-center justify-between rounded-lg border border-border/70 px-3 py-2.5">
               <span className="text-[12.5px] text-foreground/90">{a}</span>
-              <span className={cn("font-mono text-[10.5px] uppercase tracking-wider", b === "Approved" ? "text-steel" : "text-accent")}>
+              <span className={cn("font-mono text-[10.5px] uppercase tracking-wider", b === "Approved" ? "text-steel" : "text-brand")}>
                 {b}
               </span>
             </div>
@@ -323,7 +323,7 @@ function ModulePreview({ index }: { index: number }) {
       <div className="mt-3 flex items-end gap-1.5">
         {[42, 48, 44, 60, 58, 66, 70, 64, 78, 82, 76, 90].map((h, i) => (
           <div key={i} className="flex-1 rounded-sm bg-foreground/[0.08]" style={{ height: `${h}px` }}>
-            <div className="h-full w-full rounded-sm bg-gradient-to-t from-accent/70 to-accent/20" style={{ opacity: i > 8 ? 1 : 0.55 }} />
+            <div className="h-full w-full rounded-sm bg-gradient-to-t from-brand/70 to-brand/20" style={{ opacity: i > 8 ? 1 : 0.55 }} />
           </div>
         ))}
       </div>

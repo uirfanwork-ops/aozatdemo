@@ -36,7 +36,7 @@ export function Day() {
         <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
           <div className="container-x relative">
             <div className="absolute left-5 right-0 top-[18px] h-px bg-border sm:left-8 lg:left-12">
-              <motion.div className="h-px origin-left bg-accent" style={{ scaleX: lineScale }} />
+              <motion.div className="h-px origin-left bg-brand" style={{ scaleX: lineScale }} />
             </div>
           </div>
           <motion.div style={{ x }} className="flex gap-8 pl-[max(1.25rem,calc((100vw-1320px)/2+3rem))] will-change-transform">
@@ -63,12 +63,12 @@ function Step({ t, h, b, index }: { t: string; h: string; b: string; index: numb
   return (
     <article className="relative w-full shrink-0 lg:w-[440px]">
       <div className="hidden items-center gap-3 lg:flex">
-        <span className="size-[9px] rounded-full border border-accent bg-background" />
+        <span className="size-[9px] rounded-full border border-brand bg-background" />
         <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">{t}</span>
       </div>
       <div className="mt-0 rounded-3xl border border-border bg-card p-7 lg:mt-8">
         <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground lg:hidden">{t}</p>
-        <p className="font-mono text-[11px] text-accent">0{index + 1}</p>
+        <p className="font-mono text-[11px] text-brand">0{index + 1}</p>
         <h3 className="font-display mt-3 text-2xl font-medium tracking-tight">{h}</h3>
         <p className="mt-3 leading-relaxed text-muted-foreground">{b}</p>
       </div>

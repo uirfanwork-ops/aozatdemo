@@ -41,11 +41,11 @@ export function Dashboard() {
             style={{ rotateX, y, opacity, transformOrigin: "50% 0%" }}
             className="will-change-transform"
           >
-            <Tabs defaultValue="finance">
-              <TabsList>
-                <TabsTrigger value="finance">Finance</TabsTrigger>
-                <TabsTrigger value="pipeline">Pipeline</TabsTrigger>
-                <TabsTrigger value="projects">Projects</TabsTrigger>
+            <Tabs defaultValue="finance" className="gap-6">
+              <TabsList className="h-auto rounded-full border p-1">
+                <TabsTrigger value="finance" className="h-9 rounded-full px-4 data-[state=active]:bg-foreground data-[state=active]:text-background">Finance</TabsTrigger>
+                <TabsTrigger value="pipeline" className="h-9 rounded-full px-4 data-[state=active]:bg-foreground data-[state=active]:text-background">Pipeline</TabsTrigger>
+                <TabsTrigger value="projects" className="h-9 rounded-full px-4 data-[state=active]:bg-foreground data-[state=active]:text-background">Projects</TabsTrigger>
               </TabsList>
               <Frame>
                 <TabsContent value="finance">
@@ -95,7 +95,7 @@ function Stat({
     <div className="rounded-2xl border border-border bg-background/60 p-4 sm:p-5">
       <p className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-muted-foreground">{label}</p>
       <p className="font-display mt-3 text-2xl font-medium tracking-tight sm:text-3xl">{value}</p>
-      <p className={cn("mt-2 flex items-center gap-1 text-[12px]", up ? "text-steel" : "text-accent")}>
+      <p className={cn("mt-2 flex items-center gap-1 text-[12px]", up ? "text-steel" : "text-brand")}>
         {up ? <ArrowUpRight className="size-3.5" /> : <ArrowDownRight className="size-3.5" />}
         {delta}
       </p>
@@ -118,7 +118,7 @@ function FinanceView() {
           <p className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-muted-foreground">Billed vs. cost, trailing 12 months</p>
           <div className="flex gap-4 text-[11.5px] text-muted-foreground">
             <span className="flex items-center gap-1.5"><span className="size-2 rounded-sm bg-foreground/60" />Billed</span>
-            <span className="flex items-center gap-1.5"><span className="size-2 rounded-sm bg-accent" />Cost</span>
+            <span className="flex items-center gap-1.5"><span className="size-2 rounded-sm bg-brand" />Cost</span>
           </div>
         </div>
         <div className="mt-6 flex h-[220px] items-end gap-2 sm:gap-3">
@@ -126,7 +126,7 @@ function FinanceView() {
             <div key={i} className="flex flex-1 flex-col items-center gap-2">
               <div className="flex w-full items-end gap-[3px]" style={{ height: 190 }}>
                 <div className="flex-1 rounded-t-sm bg-foreground/55" style={{ height: `${h}%` }} />
-                <div className="flex-1 rounded-t-sm bg-accent/85" style={{ height: `${h * 0.72}%` }} />
+                <div className="flex-1 rounded-t-sm bg-brand/85" style={{ height: `${h * 0.72}%` }} />
               </div>
               <span className="font-mono text-[10px] text-muted-foreground">{months[i]}</span>
             </div>
@@ -197,7 +197,7 @@ function ProjectsView() {
               <td className="px-4 py-3 text-foreground/90">{scope}</td>
               <td className="hidden px-4 py-3 text-muted-foreground sm:table-cell">{prog}</td>
               <td className="px-4 py-3">
-                <span className={cn("inline-flex items-center gap-1.5", ok ? "text-steel" : "text-accent")}>
+                <span className={cn("inline-flex items-center gap-1.5", ok ? "text-steel" : "text-brand")}>
                   <CircleDot className="size-3" />
                   {status}
                 </span>

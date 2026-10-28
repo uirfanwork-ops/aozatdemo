@@ -8,13 +8,33 @@ import { Input } from "@/components/ui/input";
 import { Reveal } from "@/components/site/reveal";
 
 export function Apply() {
-  const [sent, setSent] = useState(false);
+  const [state, setState] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const sent = state === "sent";
+
+  async function submit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setState("sending");
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
+    try {
+      const res = await fetch("/api/walkthrough", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      setState("sent");
+      form.reset();
+    } catch {
+      setState("error");
+    }
+  }
   return (
     <section id="apply" className="relative border-t border-border bg-background py-28 sm:py-36">
       <div className="container-x">
         <Reveal>
           <div className="relative overflow-hidden rounded-[28px] border border-border bg-card">
-            <div className="pointer-events-none absolute -right-40 -top-40 size-[520px] rounded-full bg-accent/15 blur-[120px]" />
+            <div className="pointer-events-none absolute -right-40 -top-40 size-[520px] rounded-full bg-brand/15 blur-[120px]" />
             <div className="grain absolute inset-0" />
             <div className="relative grid gap-12 p-8 sm:p-12 lg:grid-cols-2 lg:p-16">
               <div>
@@ -33,7 +53,7 @@ export function Apply() {
                     "An owner who wants to get out of the inbox",
                   ].map((t) => (
                     <li key={t} className="flex items-start gap-3">
-                      <span className="mt-[3px] flex size-5 items-center justify-center rounded-full bg-accent/15 text-accent">
+                      <span className="mt-[3px] flex size-5 items-center justify-center rounded-full bg-brand/15 text-brand">
                         <Check className="size-3" />
                       </span>
                       {t}
@@ -44,25 +64,24 @@ export function Apply() {
 
               <form
                 className="flex flex-col gap-3 self-center"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  setSent(true);
-                }}
+                onSubmit={submit}
               >
                 <label className="sr-only" htmlFor="name">Name</label>
-                <Input id="name" name="name" placeholder="Your name" required autoComplete="name" />
+                <Input className="h-12 rounded-xl px-4" id="name" name="name" placeholder="Your name" required autoComplete="name" />
                 <label className="sr-only" htmlFor="company">Company</label>
-                <Input id="company" name="company" placeholder="Company" required autoComplete="organization" />
+                <Input className="h-12 rounded-xl px-4" id="company" name="company" placeholder="Company" required autoComplete="organization" />
                 <label className="sr-only" htmlFor="email">Work email</label>
-                <Input id="email" name="email" type="email" placeholder="Work email" required autoComplete="email" />
+                <Input className="h-12 rounded-xl px-4" id="email" name="email" type="email" placeholder="Work email" required autoComplete="email" />
                 <label className="sr-only" htmlFor="revenue">Annual revenue</label>
-                <Input id="revenue" name="revenue" placeholder="Approximate annual revenue" />
-                <Button type="submit" variant="accent" size="xl" className="mt-2 w-full" disabled={sent}>
-                  {sent ? "Received. We will be in touch." : "Request a walkthrough"}
+                <Input className="h-12 rounded-xl px-4" id="revenue" name="revenue" placeholder="Approximate annual revenue" />
+                <Button type="submit" variant="brand" size="xl" className="mt-2 w-full" disabled={sent || state === "sending"}>
+                  {sent ? "Received. We will be in touch." : state === "sending" ? "Sending" : "Request a walkthrough"}
                   {!sent && <ArrowRight className="transition-transform duration-300 group-hover/btn:translate-x-1" />}
                 </Button>
-                <p className="text-center text-[12.5px] text-muted-foreground">
-                  No mailing list. One reply from a person.
+                <p className="text-center text-[12.5px] text-muted-foreground" aria-live="polite">
+                  {state === "error"
+                    ? "That did not go through. Email hello@omnigc.example instead."
+                    : "No mailing list. One reply from a person."}
                 </p>
               </form>
             </div>

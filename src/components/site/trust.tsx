@@ -66,7 +66,7 @@ export function Trust() {
             <Reveal key={p.h} delay={i * 0.07}>
               <Card className="h-full gap-0 py-0 transition-[border-color,transform] duration-500 ease-[cubic-bezier(.2,.8,.2,1)] hover:-translate-y-1 hover:border-foreground/25">
                 <CardContent className="flex h-full flex-col p-7">
-                  <span className="flex size-10 items-center justify-center rounded-xl border border-border bg-foreground/[0.03] text-accent">
+                  <span className="flex size-10 items-center justify-center rounded-xl border border-border bg-foreground/[0.03] text-brand">
                     <p.icon className="size-[18px]" />
                   </span>
                   <h3 className="font-display mt-8 text-xl font-medium tracking-tight">{p.h}</h3>

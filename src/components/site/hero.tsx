@@ -32,6 +32,9 @@ export function Hero() {
           playsInline
           preload="metadata"
           aria-hidden="true"
+          onError={(e) => {
+            e.currentTarget.style.opacity = "0";
+          }}
         />
       </motion.div>
       <motion.div style={{ opacity: veil }} className="absolute inset-0 bg-[#0b0a09]" />
@@ -48,7 +51,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease, delay: 0.2 }}
         >
-          <Badge variant="accent">Private rollout. Canada and the US</Badge>
+          <Badge variant="brand" className="px-3 py-1 font-mono text-[11px] uppercase tracking-[0.14em]">Private rollout. Canada and the US</Badge>
         </motion.div>
 
         <MaskedLines
@@ -76,7 +79,7 @@ export function Hero() {
             transition={{ duration: 0.9, ease, delay: 0.9 }}
             className="flex flex-wrap items-center gap-3"
           >
-            <Button variant="accent" size="xl" asChild>
+            <Button variant="brand" size="xl" asChild>
               <a href="#apply">
                 Request a walkthrough
                 <ArrowRight className="transition-transform duration-300 group-hover/btn:translate-x-1" />

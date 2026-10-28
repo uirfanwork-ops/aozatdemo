@@ -7,7 +7,6 @@ import { Orbit } from "@/components/site/orbit";
 import { Confirm } from "@/components/site/confirm";
 import { Operator } from "@/components/site/operator";
 import { PhotoBreak } from "@/components/site/photo-break";
-import { Dashboard } from "@/components/site/dashboard";
 import { Day } from "@/components/site/day";
 import { Trust } from "@/components/site/trust";
 import { Apply } from "@/components/site/apply";
@@ -25,7 +24,6 @@ export default function Home() {
       <Operator />
       <Orbit />
       <PhotoBreak />
-      <Dashboard />
       <Day />
       <Confirm />
       <Trust />

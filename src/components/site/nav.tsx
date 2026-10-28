@@ -12,7 +12,6 @@ import { cn } from "@/lib/utils";
 
 const links = [
   { href: "#operator", label: "Platform" },
-  { href: "#dashboard", label: "Finance" },
   { href: "#day", label: "A day" },
   { href: "#trust", label: "Security" },
   { href: "#faq", label: "FAQ" },

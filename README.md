@@ -26,7 +26,7 @@ npm start
 
 ## Colour
 
-Dark only: near-black surfaces with an orange-to-amber gradient. Four sections (the statement, finance, approval and FAQ) sit white as islands via the `.island` class, which re-declares the light tokens locally.
+Dark only: near-black surfaces with an orange-to-amber gradient. Three sections (the statement, approval and FAQ) sit white as islands via the `.island` class, which re-declares the light tokens locally.
 
 ## Hero explainer
 

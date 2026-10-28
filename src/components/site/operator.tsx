@@ -76,7 +76,8 @@ export function Operator() {
         </Reveal>
         <MaskedLines
           lines={["Six departments.", "One seat."]}
-          className="mt-6 max-w-[14ch] text-[clamp(2.4rem,6vw,5.4rem)] font-medium leading-[1]"
+          highlight="One seat."
+          className="mt-6 max-w-[14ch] text-[clamp(2.4rem,6vw,5.4rem)] font-bold uppercase leading-[0.98] tracking-[-0.03em]"
         />
         <Reveal delay={0.15}>
           <p className="mt-6 max-w-[52ch] text-lg leading-relaxed text-muted-foreground">
@@ -138,7 +139,7 @@ function RailItem({
   return (
     <motion.li
       style={{ opacity, x }}
-      className="font-display flex items-baseline gap-4 border-b border-border py-4 text-2xl tracking-tight last:border-b-0"
+      className="font-display flex items-baseline gap-4 border-b border-border py-4 text-2xl font-semibold uppercase tracking-[-0.02em] last:border-b-0"
     >
       {children}
     </motion.li>
@@ -178,9 +179,11 @@ function StackCard({
               <span className="bg-brand-gradient flex size-10 items-center justify-center rounded-xl text-white">
                 <Icon className="size-[18px]" />
               </span>
-              <span className="text-sm text-muted-foreground">{module.title}</span>
+              <span className="text-sm text-muted-foreground">
+                {module.key} / 06
+              </span>
             </div>
-            <h3 className="font-display mt-6 text-3xl font-medium tracking-tight sm:text-4xl">{module.title}</h3>
+            <h3 className="font-display mt-6 text-3xl font-bold uppercase tracking-[-0.03em] sm:text-4xl">{module.title}</h3>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-[17px]">{module.body}</p>
             <ul className="mt-6 flex flex-wrap gap-2">
               {module.detail.map((d) => (

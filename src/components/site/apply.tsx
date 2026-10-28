@@ -38,12 +38,13 @@ export function Apply() {
                         <div className="relative grid gap-12 p-8 sm:p-12 lg:grid-cols-2 lg:p-16">
               <div>
                 <p className="eyebrow">Private rollout</p>
-                <h2 className="mt-6 max-w-[14ch] text-[clamp(2rem,4.6vw,4rem)] font-medium leading-[1.04]">
-                  We onboard a handful of contractors at a time.
+                <h2 className="mt-6 max-w-[16ch] text-[clamp(2rem,4.6vw,4rem)] font-bold uppercase leading-[1] tracking-[-0.03em]">
+                  Run it all. <span className="text-brand-gradient">With one click.</span>
                 </h2>
                 <p className="mt-6 max-w-[46ch] text-lg leading-relaxed text-muted-foreground">
-                  Each rollout starts with a working session on your real jobs. If the fit is
-                  there, you are live inside a month. If it is not, we will tell you.
+                  We onboard a handful of contractors at a time. Each rollout starts with a working
+                  session on your real jobs. If the fit is there, you are live inside a month. If it
+                  is not, we will tell you.
                 </p>
                 <ul className="mt-8 space-y-3 text-[15px] text-foreground/85">
                   {[

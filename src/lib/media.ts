@@ -18,6 +18,17 @@ export const media = {
     "https://pikaso.cdnpk.net/private/production/5871670797/3793263213.jpg?token=exp=1793404800~hmac=00f74f9ebcc3392b3a2d63ba6510fbab02801a4be97ee339b806e6e858e33770",
 } as const;
 
+/**
+ * The hero explainer (omni-gc-promo.mp4 from the owner's Drive).
+ * `local` is tried first; drop the file at public/explainer.mp4. If it is missing,
+ * the player falls back to the Drive preview, which needs the file shared as
+ * "anyone with the link".
+ */
+export const explainer = {
+  local: "/explainer.mp4",
+  driveId: "1nmJY8i5Up1Gwhci_YCMgpSejSx4tCO6y",
+} as const;
+
 /** Photorealistic staff imagery generated in the owner's Magnific library, self-hosted at 1024px. */
 export const imagery = {
   foremanBlueprints: "/images/foreman-blueprints.jpg",

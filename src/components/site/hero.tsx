@@ -6,8 +6,6 @@ import { ArrowRight, Play } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { MaskedLines } from "@/components/site/reveal";
-import { media } from "@/lib/media";
-import { ExplainerDialog, PlayBadge } from "@/components/site/explainer";
 import { Blueprint } from "@/components/site/blueprint";
 
 const ease = [0.2, 0.8, 0.2, 1] as const;
@@ -15,8 +13,6 @@ const ease = [0.2, 0.8, 0.2, 1] as const;
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const panelY = useTransform(scrollYProgress, [0, 1], ["0%", "-12%"]);
-  const panelScale = useTransform(scrollYProgress, [0, 1], [1, 1.04]);
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
@@ -58,53 +54,16 @@ export function Hero() {
               <ArrowRight className="transition-transform duration-300 group-hover/btn:translate-x-1" />
             </a>
           </Button>
-          <ExplainerDialog>
-            <Button variant="outline" size="xl">
+          <Button variant="outline" size="xl" asChild>
+            <a href="#film">
               <Play className="fill-current" />
-              Watch the explainer
-            </Button>
-          </ExplainerDialog>
+              Watch the tour
+            </a>
+          </Button>
         </motion.div>
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.1, ease, delay: 1.05 }}
-        className="container-x relative z-10 mt-14 sm:mt-20"
-      >
-        <motion.div style={{ y: panelY, scale: panelScale }} className="will-change-transform">
-          <div className="bg-brand-gradient rounded-[28px] p-[2px] shadow-[0_40px_90px_-40px_var(--brand-glow)]">
-            <div className="group/panel relative aspect-[16/9] overflow-hidden rounded-[26px] bg-[#0d0c0b] sm:aspect-[21/9]">
-              <video
-                className="h-full w-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="auto"
-                poster="/hero-poster.jpg"
-                aria-hidden="true"
-              >
-                <source src={media.heroVideo} type="video/mp4" />
-                <source src="/hero.webm" type="video/webm" />
-                <source src="/hero.mp4" type="video/mp4" />
-              </video>
-              <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(14,23,38,0.55)_0%,transparent_45%)]" />
-              <ExplainerDialog>
-                <button
-                  type="button"
-                  aria-label="Watch the explainer"
-                  className="absolute inset-0 flex items-center justify-center outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
-                >
-                  <PlayBadge />
-                </button>
-              </ExplainerDialog>
-            </div>
-          </div>
-        </motion.div>
-      </motion.div>
-      <div className="h-20 sm:h-28" />
+      <div className="h-12 sm:h-16" />
     </section>
   );
 }

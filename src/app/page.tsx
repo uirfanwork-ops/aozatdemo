@@ -19,10 +19,10 @@ export default function Home() {
     <main className="relative">
       <Nav />
       <Hero />
+      <Film />
       <Ticker />
       <Army />
       <HowItWorks />
-      <Film />
       <Outcomes />
       <Operator />
       <Orbit />

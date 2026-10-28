@@ -4,7 +4,7 @@ import { ShieldCheck, Database, Eye, FileCheck2 } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Reveal, MaskedLines } from "@/components/site/reveal";
-import { media } from "@/lib/media";
+import { imagery } from "@/lib/media";
 
 const points = [
   {
@@ -51,11 +51,10 @@ export function Trust() {
             <div className="relative overflow-hidden rounded-3xl border border-border bg-[radial-gradient(80%_60%_at_30%_20%,oklch(0.9_0.04_200)_0%,oklch(0.78_0.08_250)_100%)]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={media.concreteBeams}
-                alt="Concrete beams and shadows inside a structure under construction"
+                src={imagery.projectManagers}
+                alt="Two project managers walking a tenant fit-out, one pointing at ductwork overhead"
                 className="aspect-[4/3] w-full object-cover"
                 loading="lazy"
-          onError={(e) => { e.currentTarget.style.opacity = "0"; }}
               />
               
             </div>

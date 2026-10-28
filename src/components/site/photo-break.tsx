@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 
 import { Reveal } from "@/components/site/reveal";
-import { media } from "@/lib/media";
+import { imagery } from "@/lib/media";
 
 export function PhotoBreak() {
   const ref = useRef<HTMLElement>(null);
@@ -32,11 +32,10 @@ export function PhotoBreak() {
               <motion.div style={{ y }} className="absolute inset-[-8%] will-change-transform">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={media.craneSunset}
-                  alt="Tower crane working on a site at sunset, dust in the air"
+                  src={imagery.superintendent}
+                  alt="A site superintendent holding a tablet in front of a steel frame at golden hour"
                   className="h-full w-full object-cover"
                   loading="lazy"
-                  onError={(e) => { e.currentTarget.style.opacity = "0"; }}
                 />
               </motion.div>
             </div>

@@ -6,6 +6,7 @@ import { ArrowUpRight, ArrowDownRight, CircleDot } from "lucide-react";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Reveal, MaskedLines } from "@/components/site/reveal";
+import { imagery } from "@/lib/media";
 import { cn } from "@/lib/utils";
 
 export function Dashboard() {
@@ -28,8 +29,17 @@ export function Dashboard() {
               className="mt-6 max-w-[16ch] text-[clamp(2.2rem,5.4vw,4.8rem)] font-medium leading-[1.02]"
             />
           </div>
-          <Reveal delay={0.1}>
-            <p className="max-w-[42ch] text-lg leading-relaxed text-muted-foreground">
+          <Reveal delay={0.1} className="flex max-w-[560px] flex-col gap-5 sm:flex-row sm:items-end">
+            <div className="shrink-0 overflow-hidden rounded-2xl border border-border sm:w-[200px]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={imagery.estimator}
+                alt="An estimator at a site-office desk with a takeoff drawing on screen"
+                className="aspect-[3/2] w-full object-cover sm:aspect-[4/5]"
+                loading="lazy"
+              />
+            </div>
+            <p className="text-lg leading-relaxed text-muted-foreground">
               Job costing, draws, retainage and cash sit on one screen. The numbers below are
               illustrative, drawn from a sample company, so you can see the shape of the view.
             </p>

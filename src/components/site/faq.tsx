@@ -1,5 +1,6 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Reveal } from "@/components/site/reveal";
+import { imagery } from "@/lib/media";
 
 const faqs = [
   {
@@ -38,6 +39,15 @@ export function Faq() {
             <h2 className="mt-6 text-[clamp(2rem,4vw,3.4rem)] font-medium leading-[1.05]">
               The ones owners ask first.
             </h2>
+            <div className="mt-10 overflow-hidden rounded-3xl border border-border">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={imagery.blueprintsTable}
+                alt="Drawings spread on a site table with a hard hat, tape measure and coffee"
+                className="aspect-[16/10] w-full object-cover"
+                loading="lazy"
+              />
+            </div>
           </Reveal>
         </div>
         <div className="lg:col-span-8">

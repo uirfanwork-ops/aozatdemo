@@ -28,6 +28,10 @@ npm start
 
 The form posts to `/api/walkthrough`. Set `RESEND_API_KEY` and `WALKTHROUGH_INBOX` (see `.env.example`) to have requests emailed through Resend. Without them the route validates and logs the request so previews still work.
 
+## Imagery
+
+`public/images/` holds five photorealistic staff and site images generated in the owner's Magnific library (foreman with drawings, superintendent at a steel frame, blueprints on a site table, two project managers walking a fit-out, estimator in a site office), self-hosted at 1024px wide. Full-resolution originals are in the Magnific library for a later swap.
+
 ## Media
 
 Hero footage and photography are licensed Freepik stock assets pulled through the Magnific library. The URLs in `src/lib/media.ts` are signed and expire in roughly a year. The hero `<video>` lists the licensed footage first and two self-hosted renders second (`public/hero.webm`, `public/hero.mp4`, poster `public/hero-poster.jpg`). Browsers fall through `<source>` entries on a network failure, so the page always has moving footage. The self-hosted clip is a 14 second navy-and-teal structural-frame animation rendered from `docs/hero-render/scene.html` with Playwright and encoded with ffmpeg. Playback of the fallback was verified in headless Chromium (ready state 4, 1920x1080, currentTime advancing). The licensed footage could not be loaded from the build environment because `videocdn.cdnpk.net` and `pikaso.cdnpk.net` are outside its allowed network. Before launch, download the files from the Magnific library links in that file, drop them in `public/`, and point the constants at the local paths.

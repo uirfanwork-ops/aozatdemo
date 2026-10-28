@@ -17,3 +17,12 @@ export const media = {
   craneSunset:
     "https://pikaso.cdnpk.net/private/production/5871670797/3793263213.jpg?token=exp=1793404800~hmac=00f74f9ebcc3392b3a2d63ba6510fbab02801a4be97ee339b806e6e858e33770",
 } as const;
+
+/** Photorealistic staff imagery generated in the owner's Magnific library, self-hosted at 1024px. */
+export const imagery = {
+  foremanBlueprints: "/images/foreman-blueprints.jpg",
+  superintendent: "/images/superintendent-steel-frame.jpg",
+  blueprintsTable: "/images/blueprints-table.jpg",
+  projectManagers: "/images/project-managers-fitout.jpg",
+  estimator: "/images/estimator-site-office.jpg",
+} as const;

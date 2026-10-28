@@ -33,16 +33,17 @@ export function Army() {
               <Role key={r} label={r} spot={spots[i]} index={i} progress={scrollYProgress} />
             ))}
           </div>
+          <div className="pointer-events-none absolute left-1/2 top-1/2 z-[5] h-[52%] w-[82%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/85 blur-3xl" />
           <div className="container-x relative z-10 text-center">
             <motion.h2
               style={{ opacity: titleOpacity, y: titleY }}
-              className="mx-auto max-w-[14ch] text-[clamp(2.4rem,6.5vw,5.8rem)] font-bold uppercase leading-[0.95] tracking-[-0.03em] [text-shadow:0_0_18px_#fff,0_0_36px_#fff,0_0_60px_#fff]"
+              className="mx-auto max-w-[14ch] text-[clamp(2.4rem,6.5vw,5.8rem)] font-bold uppercase leading-[0.95] tracking-[-0.03em]"
             >
               Running a construction company takes <span className="text-brand-gradient">an army.</span>
             </motion.h2>
             <motion.h2
               style={{ opacity: oneOpacity, scale: oneScale }}
-              className="absolute inset-x-0 top-1/2 -translate-y-1/2 text-[clamp(3rem,9vw,8.5rem)] font-bold uppercase leading-none tracking-[-0.04em] [text-shadow:0_0_18px_#fff,0_0_36px_#fff]"
+              className="absolute inset-x-0 top-1/2 -translate-y-1/2 text-[clamp(3rem,9vw,8.5rem)] font-bold uppercase leading-none tracking-[-0.04em]"
             >
               One <span className="text-brand-gradient">operator.</span>
             </motion.h2>

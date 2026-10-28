@@ -22,19 +22,7 @@ export function Film() {
   return (
     <section id="film" className="scroll-mt-20 bg-background pb-28 pt-4 sm:pb-36">
       <div className="container-x">
-        <Reveal className="mx-auto max-w-[52ch] text-center">
-          <p className="eyebrow">The 90-second tour</p>
-          <h2 className="font-display mt-6 text-[clamp(1.9rem,4.2vw,3.6rem)] font-medium leading-[1.08] tracking-[-0.025em]">
-            Lead, quote, build, market.{" "}
-            <span className="text-brand-gradient">One click at each step.</span>
-          </h2>
-          <p className="mt-6 text-muted-foreground">
-            Watch a lead come in, get measured and priced, run as a project with its invoices,
-            selections, subtrades and expenses, and end up on your social feed.
-          </p>
-        </Reveal>
-
-        <Reveal delay={0.1} className="mt-14 sm:mt-16">
+        <Reveal delay={0.1}>
           <div className="bg-brand-gradient rounded-[28px] p-[2px] shadow-[0_40px_90px_-40px_var(--brand-glow)]">
             <div className="relative aspect-video overflow-hidden rounded-[26px] bg-black">
               <video

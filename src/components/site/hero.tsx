@@ -27,14 +27,15 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease, delay: 0.2 }}
         >
-          <Badge variant="brand" className="px-3 py-1 text-xs">Private rollout in Canada and the US</Badge>
+          <Badge variant="brand" className="px-3 py-1 text-xs">General contracting</Badge>
         </motion.div>
 
         <MaskedLines
           as="h1"
           delay={0.35}
-          lines={["One operator.", "The whole company."]}
-          className="mt-6 max-w-[18ch] text-[clamp(2.9rem,8vw,7.2rem)] font-medium leading-[0.96] text-foreground"
+          lines={["One company.", "A hundred moving parts."]}
+          highlight="moving parts."
+          className="mt-6 max-w-[22ch] text-[clamp(2.6rem,6.6vw,6rem)] font-bold leading-[0.98] tracking-[-0.035em] text-foreground"
         />
 
         <div className="mt-8 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
@@ -44,9 +45,8 @@ export function Hero() {
             transition={{ duration: 0.9, ease, delay: 0.75 }}
             className="max-w-[46ch] text-lg leading-relaxed text-muted-foreground sm:text-xl"
           >
-            Omni GC runs the office of a general contractor from one screen. It finds the work,
-            prices it, wins it, delivers it and closes the books. You make the calls. It does the
-            rest.
+            Omni GC is one AI employee for your entire construction business. It finds the work,
+            prices it, wins it, delivers it and closes the books. You confirm. It runs.
           </motion.p>
 
           <motion.div

@@ -42,11 +42,14 @@ export function MaskedLines({
   className,
   delay = 0,
   as: Tag = "h2",
+  highlight,
 }: {
   lines: string[];
   className?: string;
   delay?: number;
   as?: "h1" | "h2" | "h3" | "p";
+  /** A phrase at the end of a line rendered in the brand gradient. */
+  highlight?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-10% 0px" });
@@ -61,7 +64,14 @@ export function MaskedLines({
               animate={inView ? { y: 0 } : { y: "110%" }}
               transition={{ duration: 1, ease, delay: delay + i * 0.09 }}
             >
-              {line}
+              {highlight && line.endsWith(highlight) ? (
+                <>
+                  {line.slice(0, line.length - highlight.length)}
+                  <span className="text-brand-gradient">{highlight}</span>
+                </>
+              ) : (
+                line
+              )}
             </motion.span>
           </span>
         ))}

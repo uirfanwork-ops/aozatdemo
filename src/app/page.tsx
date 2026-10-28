@@ -2,6 +2,9 @@ import { Nav } from "@/components/site/nav";
 import { Hero } from "@/components/site/hero";
 import { Ticker } from "@/components/site/ticker";
 import { Statement } from "@/components/site/statement";
+import { Army } from "@/components/site/army";
+import { Orbit } from "@/components/site/orbit";
+import { Confirm } from "@/components/site/confirm";
 import { Operator } from "@/components/site/operator";
 import { PhotoBreak } from "@/components/site/photo-break";
 import { Dashboard } from "@/components/site/dashboard";
@@ -17,11 +20,14 @@ export default function Home() {
       <Nav />
       <Hero />
       <Ticker />
+      <Army />
       <Statement />
       <Operator />
+      <Orbit />
       <PhotoBreak />
       <Dashboard />
       <Day />
+      <Confirm />
       <Trust />
       <Apply />
       <Faq />

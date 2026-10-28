@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import { Check, Minus, ArrowRight } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -5,10 +9,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Reveal, MaskedLines } from "@/components/site/reveal";
-import { tiers, PRICE_PLACEHOLDER, type Tier } from "@/lib/pricing";
+import { tiers, PRICE_PLACEHOLDER, type Billing, type Tier } from "@/lib/pricing";
 import { cn } from "@/lib/utils";
 
 export function Pricing() {
+  const [billing, setBilling] = useState<Billing>("annual");
   return (
     <section id="pricing" className="relative border-t border-border bg-background py-28 sm:py-36">
       <div className="bg-wash pointer-events-none absolute inset-0 opacity-60" />
@@ -30,10 +35,14 @@ export function Pricing() {
           </Reveal>
         </div>
 
-        <div className="mt-16 grid items-stretch gap-5 lg:mt-20 lg:grid-cols-3 lg:gap-6">
+        <div className="mt-12 flex justify-center">
+          <BillingToggle value={billing} onChange={setBilling} />
+        </div>
+
+        <div className="mt-12 grid items-stretch gap-5 lg:mt-14 lg:grid-cols-3 lg:gap-6">
           {tiers.map((t, i) => (
             <Reveal key={t.id} delay={i * 0.08} className="h-full">
-              <TierCard tier={t} />
+              <TierCard tier={t} billing={billing} />
             </Reveal>
           ))}
         </div>
@@ -42,10 +51,63 @@ export function Pricing() {
   );
 }
 
-function TierCard({ tier }: { tier: Tier }) {
+function BillingToggle({ value, onChange }: { value: Billing; onChange: (b: Billing) => void }) {
+  const opts: { v: Billing; label: string }[] = [
+    { v: "monthly", label: "Monthly" },
+    { v: "annual", label: "Annual" },
+  ];
+  return (
+    <div
+      role="radiogroup"
+      aria-label="Billing period"
+      className="relative inline-flex items-center rounded-full border border-border bg-card p-1"
+    >
+      {opts.map((o) => {
+        const active = value === o.v;
+        return (
+          <button
+            key={o.v}
+            type="button"
+            role="radio"
+            aria-checked={active}
+            onClick={() => onChange(o.v)}
+            className={cn(
+              "relative z-10 inline-flex h-10 items-center gap-2 rounded-full px-5 text-sm font-medium outline-none transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-ring/50",
+              active ? "text-brand-foreground" : "text-muted-foreground hover:text-foreground",
+            )}
+          >
+            {active && (
+              <motion.span
+                layoutId="billing-pill"
+                className="bg-brand-gradient absolute inset-0 -z-10 rounded-full shadow-[0_10px_30px_-12px_var(--brand-glow)]"
+                transition={{ type: "spring", stiffness: 420, damping: 34 }}
+              />
+            )}
+            {o.label}
+            {o.v === "annual" && (
+              <span
+                className={cn(
+                  "rounded-full px-2 py-0.5 text-[11px] font-semibold",
+                  active ? "bg-black/15 text-brand-foreground" : "bg-brand/15 text-brand",
+                )}
+              >
+                Save up to 18%
+              </span>
+            )}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+function TierCard({ tier, billing }: { tier: Tier; billing: Billing }) {
   const popular = !!tier.popular;
-  const price = tier.price ?? PRICE_PLACEHOLDER;
-  const placeholder = tier.price === null;
+  const raw = tier.price;
+  const price = raw === null ? PRICE_PLACEHOLDER : typeof raw === "string" ? raw : raw[billing];
+  const placeholder = raw === null;
+  const perPeriod = typeof raw === "object" && raw !== null;
+  const note = perPeriod ? (billing === "annual" ? "per month, billed annually" : "per month") : tier.priceNote;
 
   const card = (
     <Card
@@ -72,16 +134,23 @@ function TierCard({ tier }: { tier: Tier }) {
         <p className="mt-3 min-h-[3.25rem] text-[15px] leading-relaxed text-muted-foreground">
           {tier.tagline}
         </p>
-        <div className="mt-7 flex items-baseline gap-2">
-          <span
-            className={cn(
-              "font-display font-bold tracking-[-0.03em]",
-              placeholder ? "text-2xl text-muted-foreground" : "text-5xl",
-            )}
-          >
-            {price}
-          </span>
-          <span className="text-sm text-muted-foreground">{tier.priceNote}</span>
+        <div className="mt-7 flex h-14 items-baseline gap-2">
+          <AnimatePresence mode="popLayout" initial={false}>
+            <motion.span
+              key={price}
+              initial={{ opacity: 0, y: 14, filter: "blur(4px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              exit={{ opacity: 0, y: -14, filter: "blur(4px)" }}
+              transition={{ duration: 0.35, ease: [0.2, 0.8, 0.2, 1] }}
+              className={cn(
+                "font-display font-bold tracking-[-0.03em]",
+                placeholder ? "text-2xl text-muted-foreground" : "text-5xl",
+              )}
+            >
+              {price}
+            </motion.span>
+          </AnimatePresence>
+          <span className="text-sm text-muted-foreground">{note}</span>
         </div>
       </CardHeader>
 

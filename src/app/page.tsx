@@ -7,7 +7,6 @@ import { Army } from "@/components/site/army";
 import { Orbit } from "@/components/site/orbit";
 import { Confirm } from "@/components/site/confirm";
 import { Operator } from "@/components/site/operator";
-import { Day } from "@/components/site/day";
 import { Trust } from "@/components/site/trust";
 import { Apply } from "@/components/site/apply";
 import { Pricing } from "@/components/site/pricing";
@@ -25,7 +24,6 @@ export default function Home() {
       <Outcomes />
       <Operator />
       <Orbit />
-      <Day />
       <Confirm />
       <Trust />
       <Pricing />

@@ -2,11 +2,14 @@
  * Pricing tiers. Set `price` to the monthly figure (for example "$499") when it is final.
  * Until then the page shows the placeholder so nothing invented ships.
  */
+export type Billing = "monthly" | "annual";
+
 export type Tier = {
   id: string;
   name: string;
   tagline: string;
-  price: string | null;
+  /** Monthly figure per billing period, or a fixed label such as "Custom". */
+  price: Record<Billing, string> | string | null;
   priceNote: string;
   cta: string;
   href: string;
@@ -22,7 +25,7 @@ export const tiers: Tier[] = [
     id: "basic",
     name: "Basic",
     tagline: "The platform without the AI operator. For smaller teams getting organised.",
-    price: "$150",
+    price: { monthly: "$299", annual: "$250" },
     priceNote: "per month",
     cta: "Start with Basic",
     href: "#apply",
@@ -38,7 +41,7 @@ export const tiers: Tier[] = [
     id: "pro-ai",
     name: "Pro AI",
     tagline: "The AI operator and its agents, working every part of the business.",
-    price: "$300",
+    price: { monthly: "$550", annual: "$450" },
     priceNote: "per month",
     cta: "Request a walkthrough",
     href: "#apply",

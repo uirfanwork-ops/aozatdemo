@@ -14,7 +14,7 @@ export function Footer() {
             </p>
           </div>
           <div className="grid grid-cols-2 gap-10 text-sm sm:grid-cols-3">
-            <FooterCol title="Product" links={["Platform", "Security", "Changelog"]} />
+            <FooterCol title="Product" links={["Platform", "Security", "Pricing", "Changelog"]} />
             <FooterCol title="Company" links={["About", "Careers", "Contact"]} />
             <FooterCol title="Legal" links={["Privacy", "Terms", "Data processing"]} />
           </div>

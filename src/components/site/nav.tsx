@@ -14,6 +14,7 @@ const links = [
   { href: "#operator", label: "Platform" },
   { href: "#day", label: "A day" },
   { href: "#trust", label: "Security" },
+  { href: "#pricing", label: "Pricing" },
   { href: "#faq", label: "FAQ" },
 ];
 

@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     q: "What does it cost?",
-    a: "Pricing is set per company after the first session, based on volume and modules. We would rather show you the number against your own books than publish a table that fits nobody.",
+    a: "There are three plans. Basic covers the platform for small teams. Pro AI adds the AI operator and its agents. Enterprise is scoped with you for larger companies. The pricing section above has the detail.",
   },
 ];
 

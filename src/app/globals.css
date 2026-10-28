@@ -4,33 +4,6 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.24 0.035 262);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.24 0.035 262);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.24 0.035 262);
-  --primary: oklch(0.24 0.035 262);
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.965 0.008 240);
-  --secondary-foreground: oklch(0.24 0.035 262);
-  --muted: oklch(0.965 0.008 240);
-  --muted-foreground: oklch(0.5 0.025 255);
-  --accent: oklch(0.955 0.012 230);
-  --accent-foreground: oklch(0.24 0.035 262);
-  --brand: oklch(0.55 0.19 258);
-  --brand-2: oklch(0.68 0.13 190);
-  --brand-foreground: oklch(0.99 0 0);
-  --brand-glow: oklch(0.6 0.16 230 / 0.45);
-  --steel: oklch(0.6 0.12 195);
-  --destructive: oklch(0.58 0.2 25);
-  --border: oklch(0.9 0.01 245);
-  --input: oklch(0.9 0.01 245);
-  --ring: oklch(0.55 0.19 258);
-  --radius: 1rem;
-}
-
-.dark {
   --background: oklch(0.13 0.004 60);
   --foreground: oklch(0.93 0.008 80);
   --card: oklch(0.17 0.005 60);
@@ -53,11 +26,11 @@
   --border: oklch(1 0 0 / 11%);
   --input: oklch(1 0 0 / 13%);
   --ring: oklch(0.66 0.19 42);
-  color-scheme: dark;
+  --radius: 1rem;
 }
 
-/* Sections that stay white in dark mode. */
-.dark .island {
+/* Sections that sit white against the dark page. */
+.island {
   --background: oklch(1 0 0);
   --foreground: oklch(0.24 0.035 262);
   --card: oklch(1 0 0);
@@ -129,7 +102,7 @@
   }
   html {
     overflow-x: clip;
-    color-scheme: light;
+    color-scheme: dark;
     scroll-behavior: auto;
   }
   body {

@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
 import { Logo } from "@/components/site/logo";
-import { featureCategories } from "@/lib/features";
+import { featureCategories, featureTotal } from "@/lib/features";
 import { cn } from "@/lib/utils";
 
 // Page anchors carry the root path so they work from the features page too.
@@ -20,8 +20,6 @@ const links = [
   { href: "/#faq", label: "FAQ" },
 ];
 
-/** How many features each category lists in the menu before "and N more". */
-const MENU_PER_CATEGORY = 5;
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -119,8 +117,8 @@ export function Nav() {
 
 /**
  * Features in the top bar: a link to the features page that, on hover or
- * keyboard focus, drops a panel listing every category and its leading
- * features, each linking to its place on that page.
+ * keyboard focus, drops a panel listing each part of the business and its
+ * three leading features, each linking to that part of the page.
  */
 function FeaturesMenu({ top }: { top: number }) {
   const [open, setOpen] = useState(false);
@@ -136,7 +134,6 @@ function FeaturesMenu({ top }: { top: number }) {
   useEffect(() => () => {
     if (timer.current) clearTimeout(timer.current);
   }, []);
-  const total = featureCategories.reduce((n, c) => n + c.features.length, 0);
 
   return (
     <div
@@ -175,7 +172,6 @@ function FeaturesMenu({ top }: { top: number }) {
             <div className="grid grid-cols-2 gap-x-8 gap-y-8 lg:grid-cols-4">
               {featureCategories.map((c) => {
                 const Icon = c.icon;
-                const more = c.features.length - MENU_PER_CATEGORY;
                 return (
                   <div key={c.slug}>
                     <Link
@@ -186,23 +182,16 @@ function FeaturesMenu({ top }: { top: number }) {
                       {c.title}
                     </Link>
                     <ul className="mt-3 space-y-1.5">
-                      {c.features.slice(0, MENU_PER_CATEGORY).map((f) => (
-                        <li key={f.slug}>
+                      {c.features.map((f) => (
+                        <li key={f.name}>
                           <Link
-                            href={`/features#${f.slug}`}
+                            href={`/features#${c.slug}`}
                             className="block truncate text-[13px] text-muted-foreground transition-colors hover:text-foreground"
                           >
                             {f.name}
                           </Link>
                         </li>
                       ))}
-                      {more > 0 && (
-                        <li>
-                          <Link href={`/features#${c.slug}`} className="text-[12.5px] text-brand hover:underline">
-                            and {more} more
-                          </Link>
-                        </li>
-                      )}
                     </ul>
                   </div>
                 );
@@ -210,10 +199,10 @@ function FeaturesMenu({ top }: { top: number }) {
             </div>
             <div className="mt-7 flex items-center justify-between border-t border-border pt-5">
               <p className="text-[13px] text-muted-foreground">
-                {total} features across {featureCategories.length} parts of the business.
+                {featureTotal} features across {featureCategories.length} parts of the business.
               </p>
               <Link href="/features" className="inline-flex items-center gap-1.5 text-[13.5px] font-medium text-foreground hover:text-brand">
-                See every feature
+                See all features
                 <ArrowRight className="size-3.5" />
               </Link>
             </div>

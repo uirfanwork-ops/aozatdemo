@@ -13,16 +13,17 @@ const ease = [0.2, 0.8, 0.2, 1] as const;
  * its own depth so it moves further than the screen when the cursor moves.
  */
 const SLOTS = [
-  { left: "-6%", top: "24%", depth: 26 },
-  { right: "-5%", top: "38%", depth: 34 },
+  { left: "-3%", top: "24%", depth: 26 },
+  { right: "-3%", top: "40%", depth: 34 },
   { left: "6%", bottom: "-5%", depth: 22 },
   { right: "8%", top: "-5%", depth: 30 },
 ] as const;
 
 /**
  * A product screenshot in a window frame that tilts toward the cursor, with
- * short notes popping out around it. On a phone, or with reduced motion, the
- * screen holds still and the notes sit in a row beneath it.
+ * short numbered notes popping out around it. On a phone the notes are left
+ * off, since the numbered list beside the screen says the same, and with
+ * reduced motion the screen holds still.
  */
 export function FeatureShot({
   src,
@@ -106,16 +107,6 @@ export function FeatureShot({
           </div>
         </motion.div>
       </div>
-
-      {/* On a phone the notes sit under the screen instead. */}
-      <ul className="mt-5 flex flex-wrap gap-2 lg:hidden">
-        {pills.map((p) => (
-          <li key={p} className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-3 py-1.5 text-[13px] text-foreground/85">
-            <span className="bg-brand-gradient size-1.5 rounded-full" aria-hidden="true" />
-            {p}
-          </li>
-        ))}
-      </ul>
     </div>
   );
 }

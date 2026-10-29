@@ -19,15 +19,16 @@ export const media = {
 } as const;
 
 /**
- * The 90-second Omni GC tour (the four-step promo), self-hosted in public/ as H.264 and a
- * WebM copy for browsers built without H.264, with its poster frame. The hero dialog and
+ * The Omni GC tour (the four steps, then every part of the business), self-hosted in public/
+ * as H.264 and a WebM copy for browsers built without H.264, with its poster frame. The
+ * version query makes browsers fetch a new cut instead of a cached one; bump it with each. The hero dialog and
  * the tour section both play it. If the file ever fails to load, the dialog falls back to
  * the Drive preview, which still holds the earlier 30-second cut.
  */
 export const explainer = {
-  local: "/explainer.mp4",
-  webm: "/explainer.webm",
-  poster: "/explainer-poster.jpg",
+  local: "/explainer.mp4?v=4",
+  webm: "/explainer.webm?v=4",
+  poster: "/explainer-poster.jpg?v=4",
   driveId: "1nmJY8i5Up1Gwhci_YCMgpSejSx4tCO6y",
 } as const;
 

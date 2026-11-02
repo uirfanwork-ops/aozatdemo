@@ -37,7 +37,7 @@ export function Confirm() {
                 <Check /> Approve and send
               </Button>
               <p className="mt-3 text-center text-xs text-muted-foreground">
-                Drafted, priced and checked by Omni GC. Released by you.
+                Drafted, priced and checked by Omnibeam. Released by you.
               </p>
             </div>
           </Reveal>

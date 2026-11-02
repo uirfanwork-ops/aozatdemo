@@ -121,7 +121,7 @@ function TierCard({ tier, billing }: { tier: Tier; billing: Billing }) {
       )}
       <CardHeader className="relative gap-0 px-7 pt-7 sm:px-8 sm:pt-8">
         <div className="flex items-center justify-between gap-3">
-          <p className="text-sm text-muted-foreground">Omni GC</p>
+          <p className="text-sm text-muted-foreground">Omnibeam</p>
           {popular && (
             <Badge variant="brand" className="px-2.5 py-1 text-[11px]">
               Most popular

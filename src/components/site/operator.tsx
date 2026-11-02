@@ -21,7 +21,7 @@ const modules = [
     key: "01",
     icon: Radar,
     title: "Lead generation",
-    screen: { src: "/portal/lead-generation.jpg", label: "Lead Manager", alt: "The Omni GC Lead Manager: new leads, qualified, and in estimating, on a board" },
+    screen: { src: "/portal/lead-generation.jpg", label: "Lead Manager", alt: "The Omnibeam Lead Manager: new leads, qualified, and in estimating, on a board" },
     body: "Watches permit filings, tenders, franchise expansion notices and your own referral network. Every morning there is a short list of jobs worth a phone call, with the reason each one made the cut.",
     detail: ["Permit and tender feeds", "Owner and developer tracking", "Fit score per lead"],
   },
@@ -29,7 +29,7 @@ const modules = [
     key: "02",
     icon: Handshake,
     title: "Sales and estimating",
-    screen: { src: "/portal/sales-estimating.jpg", label: "AI takeoff", alt: "An Omni GC AI takeoff: measured items with confidence notes beside the floor plan, waiting for review" },
+    screen: { src: "/portal/sales-estimating.jpg", label: "AI takeoff", alt: "An Omnibeam AI takeoff: measured items with confidence notes beside the floor plan, waiting for review" },
     body: "Drafts the takeoff, prices it against your real cost history, writes the proposal in your voice and follows up until the client answers. You review numbers, not paperwork.",
     detail: ["Takeoff from drawings", "Cost history pricing", "Follow-up cadence"],
   },
@@ -37,7 +37,7 @@ const modules = [
     key: "03",
     icon: Megaphone,
     title: "Marketing",
-    screen: { src: "/portal/marketing.jpg", label: "Automations", alt: "Omni GC automations: email flows that chase quotes, welcome clients, and ask for reviews" },
+    screen: { src: "/portal/marketing.jpg", label: "Automations", alt: "Omnibeam automations: email flows that chase quotes, welcome clients, and ask for reviews" },
     body: "Turns finished jobs into case studies, site photos into posts, and quiet months into outreach. Runs on a calendar you approve once a quarter.",
     detail: ["Case studies from close-out", "Site photo pipeline", "Quarterly calendar"],
   },
@@ -45,7 +45,7 @@ const modules = [
     key: "04",
     icon: HardHat,
     title: "Project management",
-    screen: { src: "/portal/project-management.jpg", label: "Project schedule", alt: "An Omni GC project schedule: phases and line items on a Gantt chart, with progress from site reports" },
+    screen: { src: "/portal/project-management.jpg", label: "Project schedule", alt: "An Omnibeam project schedule: phases and line items on a Gantt chart, with progress from site reports" },
     body: "Schedules trades, chases submittals, logs daily reports from the field and flags the slip before it becomes a claim. Change orders go out the same day they are discovered.",
     detail: ["Trade scheduling", "Daily logs and RFIs", "Same-day change orders"],
   },
@@ -53,7 +53,7 @@ const modules = [
     key: "05",
     icon: Users,
     title: "Client and customer management",
-    screen: { src: "/portal/client-management.jpg", label: "Client portal", alt: "A client's Omni GC portal: their projects in construction, starting soon, and completed" },
+    screen: { src: "/portal/client-management.jpg", label: "Client portal", alt: "A client's Omnibeam portal: their projects in construction, starting soon, and completed" },
     body: "Every owner, architect and tenant gets a portal with the schedule, the budget and the photos. Questions get answered before they turn into calls to your cell.",
     detail: ["Owner portal", "Approvals and sign-offs", "Warranty tracking"],
   },
@@ -61,7 +61,7 @@ const modules = [
     key: "06",
     icon: Landmark,
     title: "Financial dashboards",
-    screen: { src: "/portal/financial-dashboards.jpg", label: "Expenses", alt: "Omni GC expenses: spend by category and by project, with tax split out" },
+    screen: { src: "/portal/financial-dashboards.jpg", label: "Expenses", alt: "Omnibeam expenses: spend by category and by project, with tax split out" },
     body: "Job costing, cash position, receivables and backlog on one screen, reconciled against the bank every night. You see the margin on each job while there is still time to protect it.",
     detail: ["Live job costing", "Cash and AR ageing", "Backlog and WIP"],
   },
@@ -236,7 +236,7 @@ function ModuleScreen({ screen }: { screen: (typeof modules)[number]["screen"] }
               <span className="size-2.5 rounded-full bg-foreground/15" />
               <span className="size-2.5 rounded-full bg-foreground/15" />
             </span>
-            <span className="ml-2 text-xs text-muted-foreground">Omni GC · {screen.label}</span>
+            <span className="ml-2 text-xs text-muted-foreground">Omnibeam · {screen.label}</span>
             <Maximize2 className="ml-auto size-3.5 text-muted-foreground transition-colors group-hover/screen:text-brand" aria-hidden="true" />
           </span>
           {img}

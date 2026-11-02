@@ -38,7 +38,7 @@ export function Hero() {
           transition={{ duration: 0.9, ease, delay: 0.7 }}
           className="mx-auto mt-8 max-w-[62ch] text-lg leading-relaxed text-muted-foreground sm:text-xl"
         >
-          Omni GC manages your leads, sales, marketing, client management, vendor management,
+          Omnibeam manages your leads, sales, marketing, client management, vendor management,
           takeoffs, quotations, proposals and full project management with one AI operator.
         </motion.p>
 

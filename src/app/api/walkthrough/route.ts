@@ -26,7 +26,7 @@ export async function POST(req: Request) {
 
   const apiKey = process.env.RESEND_API_KEY;
   const inbox = process.env.WALKTHROUGH_INBOX;
-  const from = process.env.WALKTHROUGH_FROM ?? "Omni GC <onboarding@resend.dev>";
+  const from = process.env.WALKTHROUGH_FROM ?? "Omnibeam <onboarding@resend.dev>";
 
   if (apiKey && inbox) {
     const res = await fetch("https://api.resend.com/emails", {

@@ -44,7 +44,7 @@ export function Nav() {
             scrolled ? "border-border bg-background/75 opacity-100 backdrop-blur-xl" : "opacity-0",
           )}
         />
-        <Link href="/" className="relative z-10 text-foreground" aria-label="Omni GC home">
+        <Link href="/" className="relative z-10 text-foreground" aria-label="Omnibeam home">
           <Logo />
         </Link>
 

@@ -11,9 +11,9 @@ import { featureCategories, featureTotal } from "@/lib/features";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Features. Omni GC",
+  title: "Features. Omnibeam",
   description:
-    "What Omni GC does, from the first lead to the last invoice: sales, estimating, marketing, projects, field crews, client and subcontractor portals, purchasing, finances, safety, and the AI that runs through all of it.",
+    "What Omnibeam does, from the first lead to the last invoice: sales, estimating, marketing, projects, field crews, client and subcontractor portals, purchasing, finances, safety, and the AI that runs through all of it.",
 };
 
 export default function FeaturesPage() {

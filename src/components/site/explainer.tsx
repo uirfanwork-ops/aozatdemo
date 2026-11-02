@@ -27,7 +27,7 @@ export function ExplainerDialog({
         showCloseButton
         className="w-[min(96vw,1200px)] max-w-none overflow-hidden rounded-2xl border-border bg-black p-0 sm:max-w-none"
       >
-        <DialogTitle className="sr-only">Omni GC explainer</DialogTitle>
+        <DialogTitle className="sr-only">Omnibeam explainer</DialogTitle>
         <div className="aspect-video w-full">
           {open && !useDrive && (
             <video
@@ -46,7 +46,7 @@ export function ExplainerDialog({
               src={`https://drive.google.com/file/d/${explainer.driveId}/preview`}
               allow="autoplay; fullscreen"
               allowFullScreen
-              title="Omni GC explainer"
+              title="Omnibeam explainer"
             />
           )}
         </div>

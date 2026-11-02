@@ -39,7 +39,7 @@ export function Film() {
                   type="button"
                   onClick={start}
                   className="group/play absolute inset-0 flex items-end justify-start bg-gradient-to-t from-black/45 via-transparent to-transparent p-4 sm:p-8"
-                  aria-label="Play the Omni GC tour"
+                  aria-label="Play the Omnibeam tour"
                 >
                   <span className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-black/50 py-1.5 pl-1.5 pr-4 text-sm font-medium text-white backdrop-blur-md sm:py-2 sm:pl-2 sm:pr-6 sm:text-base">
                     <span className="bg-brand-gradient flex size-10 items-center justify-center rounded-full text-brand-foreground shadow-[0_12px_32px_-12px_var(--brand-glow)] transition-transform duration-300 group-hover/play:scale-105 sm:size-14">

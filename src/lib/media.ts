@@ -19,7 +19,7 @@ export const media = {
 } as const;
 
 /**
- * The Omni GC tour (the four steps, then every part of the business), self-hosted in public/
+ * The Omnibeam tour (the four steps, then every part of the business), self-hosted in public/
  * as H.264 and a WebM copy for browsers built without H.264, with its poster frame. The
  * version query makes browsers fetch a new cut instead of a cached one; bump it with each. The hero dialog and
  * the tour section both play it. If the file ever fails to load, the dialog falls back to

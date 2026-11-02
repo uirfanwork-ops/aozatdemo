@@ -80,7 +80,7 @@ export function Apply() {
                 </Button>
                 <p className="text-center text-[12.5px] text-muted-foreground" aria-live="polite">
                   {state === "error"
-                    ? "That did not go through. Email hello@omnigc.example instead."
+                    ? "That did not go through. Email hello@omnibeam.ai instead."
                     : "No mailing list. One reply from a person."}
                 </p>
               </form>

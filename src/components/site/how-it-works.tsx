@@ -26,7 +26,7 @@ function useLoop(frames: number, stepMs: number) {
 const steps = [
   {
     n: "01",
-    title: "Talk to Omni.",
+    title: "Talk to Omnibeam.",
     body: "From the truck, the site or the parking lot. Say what you need the way you would say it to an office manager.",
     image: "/images/pm-voice.jpg",
     alt: "A project manager on a job site at dusk speaking into his phone",
@@ -35,7 +35,7 @@ const steps = [
   },
   {
     n: "02",
-    title: "Omni does the work.",
+    title: "Omnibeam does the work.",
     body: "It pulls the drawings and scope, prices the job against your cost history, writes the quote and the cover email, then asks you to sign off.",
     image: "/images/site-office-night.jpg",
     alt: "A site office desk at night with a laptop and drawings",
@@ -45,7 +45,7 @@ const steps = [
   {
     n: "03",
     title: "You approve. It goes out.",
-    body: "One tap sends the quote. Omni books the follow-ups with the client and keeps chasing until you have an answer.",
+    body: "One tap sends the quote. Omnibeam books the follow-ups with the client and keeps chasing until you have an answer.",
     image: "/images/pm-approve.jpg",
     alt: "A project manager's hands holding a phone on site at dusk",
     align: "start" as const,
@@ -62,7 +62,7 @@ export function HowItWorks() {
             <p className="eyebrow">How it works</p>
           </Reveal>
           <MaskedLines
-            lines={["Say it.", "Omni does it.", "You approve."]}
+            lines={["Say it.", "Omnibeam does it.", "You approve."]}
             highlight="You approve."
             className="mt-6 text-[clamp(2.4rem,6vw,5.4rem)] font-bold uppercase leading-[0.96] tracking-[-0.03em]"
           />
@@ -167,7 +167,7 @@ function PanelHeader({ label }: { label: string }) {
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-2">
         <LogoMark className="size-5" />
-        <span className="font-display text-sm font-semibold">Omni GC</span>
+        <span className="font-display text-sm font-semibold">Omnibeam</span>
       </div>
       <span className="text-[11px] text-white/50">{label}</span>
     </div>
@@ -228,7 +228,7 @@ function VoiceVisual() {
   );
 }
 
-/* ---------- Step 2: Omni works ---------- */
+/* ---------- Step 2: Omnibeam works ---------- */
 const tasks = [
   { icon: FileText, label: "Pulled drawings and last spring's scope" },
   { icon: FileText, label: "Priced against your cost history" },

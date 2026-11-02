@@ -21,7 +21,7 @@ export function Footer() {
         </div>
         <Separator className="my-10" />
         <div className="flex flex-col gap-3 text-[12.5px] text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2026 Omni GC. Working name.</p>
+          <p>© 2026 Omnibeam. omnibeam.ai</p>
           <p >Toronto, Canada</p>
         </div>
       </div>

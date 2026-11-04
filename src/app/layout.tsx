@@ -12,12 +12,12 @@ const display = Schibsted_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Omnibeam. Construction management for the new age.",
+  title: "Omni Beam. New age construction software.",
   description:
-    "Omnibeam is the operating layer for general contractors. Lead generation, estimating, sales, project delivery, client management and finance, run by one person with the machine doing the heavy lifting.",
+    "Omni Beam is the operating layer for general contractors. Lead generation, estimating, sales, project delivery, client management and finance, run by one person with the machine doing the heavy lifting.",
   metadataBase: new URL("https://omnibeam.ai"),
   openGraph: {
-    title: "Omnibeam",
+    title: "Omni Beam",
     description: "One AI operator for your entire construction operations.",
     type: "website",
   },

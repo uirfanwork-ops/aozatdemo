@@ -81,7 +81,7 @@ export function FeatureShot({
                   <span className="size-2.5 rounded-full bg-foreground/15" />
                   <span className="size-2.5 rounded-full bg-foreground/15" />
                 </span>
-                <span className="ml-2 truncate text-xs text-muted-foreground">Omnibeam · {label}</span>
+                <span className="ml-2 truncate text-xs text-muted-foreground">Omni Beam · {label}</span>
               </div>
               <motion.div style={still ? undefined : { x: shiftX, y: shiftY, scale: 1.04 }} className="will-change-transform">
                 {/* eslint-disable-next-line @next/next/no-img-element */}

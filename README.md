@@ -1,6 +1,6 @@
-# Omnibeam marketing site
+# Omni Beam marketing site
 
-Marketing site for Omnibeam, the working name for an operating layer that lets one person run a general contracting company: lead generation, estimating and sales, marketing, project delivery, client management and finance.
+Marketing site for Omni Beam, the working name for an operating layer that lets one person run a general contracting company: lead generation, estimating and sales, marketing, project delivery, client management and finance.
 
 ## Stack
 

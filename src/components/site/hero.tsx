@@ -27,8 +27,8 @@ export function Hero() {
         <MaskedLines
           as="h1"
           delay={0.3}
-          lines={["Construction management", "for the new age."]}
-          highlight="for the new age."
+          lines={["New age", "construction software."]}
+          highlight="construction software."
           className="mx-auto max-w-[18ch] text-[clamp(2.6rem,6.6vw,6rem)] font-bold leading-[0.98] tracking-[-0.035em] text-foreground"
         />
 
@@ -38,7 +38,7 @@ export function Hero() {
           transition={{ duration: 0.9, ease, delay: 0.7 }}
           className="mx-auto mt-8 max-w-[62ch] text-lg leading-relaxed text-muted-foreground sm:text-xl"
         >
-          Omnibeam manages your leads, sales, marketing, client management, vendor management,
+          Omni Beam manages your leads, sales, marketing, client management, vendor management,
           takeoffs, quotations, proposals and full project management with one AI operator.
         </motion.p>
 

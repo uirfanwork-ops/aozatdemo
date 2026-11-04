@@ -42,7 +42,7 @@ export function Orbit() {
               })}
             </svg>
             <div className="absolute left-1/2 top-1/2 z-10 flex size-28 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-brand-gradient text-center text-sm font-semibold uppercase tracking-wide text-white shadow-[0_20px_50px_-20px_var(--brand-glow)]">
-              Omnibeam
+              Omni Beam
             </div>
             <div className="absolute inset-0 animate-[spin_90s_linear_infinite] motion-reduce:animate-none">
               {nodes.map((n, i) => {

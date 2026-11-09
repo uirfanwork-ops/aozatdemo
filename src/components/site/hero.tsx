@@ -6,7 +6,7 @@ import { ArrowRight, Play } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { MaskedLines } from "@/components/site/reveal";
-import { Blueprint } from "@/components/site/blueprint";
+import { SystemField } from "@/components/site/system-field";
 
 const ease = [0.2, 0.8, 0.2, 1] as const;
 
@@ -18,7 +18,7 @@ export function Hero() {
 
   return (
     <section ref={ref} className="bg-wash relative overflow-hidden bg-background pt-36 sm:pt-44">
-      <Blueprint />
+      <SystemField />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-background to-transparent" />
       <motion.div
         style={{ y: textY, opacity: textOpacity }}

@@ -35,6 +35,11 @@ export function SystemField() {
     let running = false;
     let last = performance.now();
     let spawnClock = 0;
+    const photo = new Image();
+    photo.src = "/images/hero-site-dusk.jpg";
+    photo.onload = () => {
+      if (reduce) draw(performance.now(), 0);
+    };
 
     // Deterministic layout so the field looks composed, not random noise.
     let seed = 11;
@@ -114,7 +119,32 @@ export function SystemField() {
 
     function draw(now: number, dt: number) {
       const t = now / 1000;
-      ctx!.clearRect(0, 0, w, h);
+      ctx!.fillStyle = "#0a0908";
+      ctx!.fillRect(0, 0, w, h);
+      if (photo.complete && photo.naturalWidth) {
+        // cover-fit, anchored low, with a slow 40-second drift
+        const drift = reduce ? 0 : Math.sin((t / 40) * Math.PI);
+        const scale = Math.max(w / photo.naturalWidth, h / photo.naturalHeight) * (1.07 + 0.03 * drift);
+        const iw = photo.naturalWidth * scale;
+        const ih = photo.naturalHeight * scale;
+        const ix = (w - iw) / 2 + drift * w * 0.01;
+        const iy = (h - ih) * 0.6 - drift * h * 0.008;
+        ctx!.globalAlpha = 0.3;
+        ctx!.drawImage(photo, ix, iy, iw, ih);
+        ctx!.globalAlpha = 1;
+        // darken top and bottom, vignette the edges
+        const vg = ctx!.createLinearGradient(0, 0, 0, h);
+        vg.addColorStop(0, "rgba(10,9,8,0.55)");
+        vg.addColorStop(0.45, "rgba(10,9,8,0.15)");
+        vg.addColorStop(1, "rgba(10,9,8,0.85)");
+        ctx!.fillStyle = vg;
+        ctx!.fillRect(0, 0, w, h);
+        const rg = ctx!.createRadialGradient(w / 2, h * 0.45, Math.min(w, h) * 0.35, w / 2, h * 0.45, Math.max(w, h) * 0.75);
+        rg.addColorStop(0, "rgba(10,9,8,0)");
+        rg.addColorStop(1, "rgba(10,9,8,0.95)");
+        ctx!.fillStyle = rg;
+        ctx!.fillRect(0, 0, w, h);
+      }
 
       // Two slow warm glows drifting underneath everything.
       ctx!.globalCompositeOperation = "lighter";
@@ -233,10 +263,7 @@ export function SystemField() {
 
   return (
     <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-      <canvas
-        ref={canvasRef}
-        className="h-full w-full [mask-image:radial-gradient(85%_75%_at_50%_45%,#000_35%,transparent_100%)]"
-      />
+      <canvas ref={canvasRef} className="h-full w-full" />
       {/* keep the headline area calm so the type always reads first */}
       <div className="absolute inset-0 bg-[radial-gradient(42%_34%_at_50%_42%,rgba(10,9,8,0.72)_0%,rgba(10,9,8,0)_100%)]" />
     </div>

@@ -168,7 +168,7 @@ function FeaturesMenu({ top }: { top: number }) {
         style={{ top }}
       >
         <div className="container-x">
-          <div className="mt-2 max-h-[calc(100vh-120px)] overflow-y-auto rounded-3xl border border-border bg-[oklch(0.15_0.005_60/0.97)] p-7 shadow-[0_40px_90px_-30px_rgba(0,0,0,0.85)] backdrop-blur-xl">
+          <div className="mt-2 max-h-[calc(100vh-120px)] overflow-y-auto rounded-3xl border border-border bg-background/97 p-7 shadow-[0_40px_90px_-30px_rgba(120,60,20,0.25)] backdrop-blur-xl">
             <div className="grid grid-cols-2 gap-x-8 gap-y-8 lg:grid-cols-4">
               {featureCategories.map((c) => {
                 const Icon = c.icon;

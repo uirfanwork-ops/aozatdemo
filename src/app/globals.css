@@ -4,48 +4,35 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(0.13 0.004 60);
-  --foreground: oklch(0.93 0.008 80);
-  --card: oklch(0.17 0.005 60);
-  --card-foreground: oklch(0.93 0.008 80);
-  --popover: oklch(0.17 0.005 60);
-  --popover-foreground: oklch(0.93 0.008 80);
-  --primary: oklch(0.93 0.008 80);
-  --primary-foreground: oklch(0.13 0.004 60);
-  --secondary: oklch(0.21 0.005 60);
-  --secondary-foreground: oklch(0.93 0.008 80);
-  --muted: oklch(0.21 0.005 60);
-  --muted-foreground: oklch(0.66 0.01 75);
-  --accent: oklch(0.22 0.005 60);
-  --accent-foreground: oklch(0.93 0.008 80);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.2 0.015 50);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2 0.015 50);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2 0.015 50);
+  --primary: oklch(0.2 0.015 50);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.975 0.008 60);
+  --secondary-foreground: oklch(0.2 0.015 50);
+  --muted: oklch(0.975 0.008 60);
+  --muted-foreground: oklch(0.5 0.018 55);
+  --accent: oklch(0.965 0.014 60);
+  --accent-foreground: oklch(0.2 0.015 50);
   --brand: oklch(0.66 0.19 42);
   --brand-2: oklch(0.78 0.16 70);
-  --brand-foreground: oklch(0.13 0.02 45);
-  --brand-glow: oklch(0.66 0.19 42 / 0.5);
-  --steel: oklch(0.72 0.07 240);
-  --border: oklch(1 0 0 / 11%);
-  --input: oklch(1 0 0 / 13%);
+  --brand-foreground: oklch(0.99 0 0);
+  --brand-glow: oklch(0.7 0.17 50 / 0.45);
+  --steel: oklch(0.6 0.08 240);
+  --border: oklch(0.92 0.012 60);
+  --input: oklch(0.92 0.012 60);
   --ring: oklch(0.66 0.19 42);
   --radius: 1rem;
 }
 
-/* Sections that sit white against the dark page. */
+/* Sections with a soft warm tint, to separate them from the white page. */
 .island {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.24 0.035 262);
+  --background: oklch(0.985 0.012 65);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.24 0.035 262);
-  --primary: oklch(0.24 0.035 262);
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.965 0.008 240);
-  --secondary-foreground: oklch(0.24 0.035 262);
-  --muted: oklch(0.965 0.008 240);
-  --muted-foreground: oklch(0.5 0.025 255);
-  --accent: oklch(0.955 0.012 230);
-  --accent-foreground: oklch(0.24 0.035 262);
-  --border: oklch(0.9 0.01 245);
-  --input: oklch(0.9 0.01 245);
-  color-scheme: light;
 }
 
 @theme inline {
@@ -102,7 +89,7 @@
   }
   html {
     overflow-x: clip;
-    color-scheme: dark;
+    color-scheme: light;
     scroll-behavior: auto;
   }
   body {

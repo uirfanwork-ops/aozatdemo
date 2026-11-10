@@ -27,7 +27,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${display.variable} dark h-full`}
+      className={`${geistSans.variable} ${geistMono.variable} ${display.variable} h-full`}
     >
       <body className="min-h-full flex flex-col overflow-x-clip">
         <SmoothScroll>{children}</SmoothScroll>

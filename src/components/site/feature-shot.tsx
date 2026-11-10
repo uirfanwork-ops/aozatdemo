@@ -135,7 +135,7 @@ function Pill({
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
         viewport={{ once: true, margin: "-15% 0px" }}
         transition={{ duration: 0.6, ease, delay: 0.25 + index * 0.12 }}
-        className="inline-flex max-w-[260px] items-center gap-2.5 rounded-full border border-white/12 bg-[oklch(0.19_0.006_60/0.92)] py-2 pl-2.5 pr-4 text-[13px] font-medium text-foreground shadow-[0_18px_40px_-18px_rgba(0,0,0,0.8)] backdrop-blur-md"
+        className="inline-flex max-w-[260px] items-center gap-2.5 rounded-full border border-border bg-white/95 py-2 pl-2.5 pr-4 text-[13px] font-medium text-foreground shadow-[0_18px_40px_-18px_rgba(120,60,20,0.3)] backdrop-blur-md"
       >
         <span className="bg-brand-gradient flex size-5 shrink-0 items-center justify-center rounded-full text-[11px] font-bold text-brand-foreground">
           {index + 1}

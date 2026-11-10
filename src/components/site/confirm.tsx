@@ -15,7 +15,7 @@ export function Confirm() {
       <div className="container-x grid items-center gap-14 lg:grid-cols-12">
         <div className="order-2 lg:order-1 lg:col-span-7">
           <Reveal>
-            <div className="mx-auto max-w-[560px] rounded-3xl border border-border bg-card p-6 shadow-[0_40px_90px_-50px_rgba(15,23,42,0.35)] sm:p-8">
+            <div className="mx-auto max-w-[560px] rounded-3xl border border-border bg-card p-6 shadow-[0_40px_90px_-50px_rgba(120,60,20,0.22)] sm:p-8">
               <div className="flex items-center justify-between">
                 <p className="text-sm text-muted-foreground">Proposal, ready to sign</p>
                 <span className="rounded-full bg-secondary px-3 py-1 text-xs text-muted-foreground">Draft 3</span>

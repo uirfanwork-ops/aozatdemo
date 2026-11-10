@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 /**
  * Hero backdrop: one giant O in the shape of the logo, open at one o'clock with the
  * orange dot in the gap. A warm light laps the ring and the dot flares as it arrives.
- * A faint dusk construction site and a slow warm glow sit underneath.
+ * Soft peach and orange glows drift underneath, on a white page.
  * One canvas, paused off screen and in background tabs, still under reduced motion.
  */
 
@@ -37,10 +37,7 @@ export function SystemField() {
     let lap = 0.35;
     let dotFlare = 0;
 
-    const photo = new Image();
-    photo.src = "/images/hero-site-dusk.jpg";
-    photo.onload = () => draw(performance.now(), 0);
-
+    
     function layout() {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       const rect = canvas!.getBoundingClientRect();
@@ -63,28 +60,13 @@ export function SystemField() {
       ctx!.fill();
     }
 
-    function drawPhoto(t: number) {
-      ctx!.fillStyle = "#0a0908";
+    function drawBackground(t: number) {
+      ctx!.fillStyle = "#ffffff";
       ctx!.fillRect(0, 0, w, h);
-      if (!photo.complete || !photo.naturalWidth) return;
-      const drift = reduce ? 0 : Math.sin((t / 40) * Math.PI);
-      const scale = Math.max(w / photo.naturalWidth, h / photo.naturalHeight) * (1.07 + 0.03 * drift);
-      const iw = photo.naturalWidth * scale;
-      const ih = photo.naturalHeight * scale;
-      ctx!.globalAlpha = 0.28;
-      ctx!.drawImage(photo, (w - iw) / 2 + drift * w * 0.01, (h - ih) * 0.6 - drift * h * 0.008, iw, ih);
-      ctx!.globalAlpha = 1;
-      const vg = ctx!.createLinearGradient(0, 0, 0, h);
-      vg.addColorStop(0, "rgba(10,9,8,0.55)");
-      vg.addColorStop(0.45, "rgba(10,9,8,0.15)");
-      vg.addColorStop(1, "rgba(10,9,8,0.85)");
-      ctx!.fillStyle = vg;
-      ctx!.fillRect(0, 0, w, h);
-      const rg = ctx!.createRadialGradient(w / 2, h * 0.45, Math.min(w, h) * 0.35, w / 2, h * 0.45, Math.max(w, h) * 0.75);
-      rg.addColorStop(0, "rgba(10,9,8,0)");
-      rg.addColorStop(1, "rgba(10,9,8,0.95)");
-      ctx!.fillStyle = rg;
-      ctx!.fillRect(0, 0, w, h);
+      // soft peach and orange glows drifting slowly, the warm light behind the page
+      glowDot(w * (0.28 + 0.06 * Math.sin(t * 0.06)), h * (0.3 + 0.05 * Math.cos(t * 0.05)), Math.max(w, h) * 0.45, [255, 196, 150], 0.42);
+      glowDot(w * (0.74 + 0.05 * Math.cos(t * 0.05)), h * (0.62 + 0.06 * Math.sin(t * 0.07)), Math.max(w, h) * 0.42, [255, 170, 110], 0.3);
+      glowDot(w * 0.5, h * 0.48, Math.max(w, h) * 0.3, [255, 224, 196], 0.5);
     }
 
     function drawO(t: number, dt: number) {
@@ -93,14 +75,14 @@ export function SystemField() {
 
       // the O: a wide, quiet band with crisp edges
       ctx!.lineCap = "round";
-      ctx!.strokeStyle = "rgba(236,231,223,0.055)";
+      ctx!.strokeStyle = "rgba(243,112,33,0.07)";
       ctx!.lineWidth = band;
       ctx!.beginPath();
       ctx!.arc(cx, cy, R, ARC_START, ARC_START + ARC_LEN);
       ctx!.stroke();
       ctx!.lineCap = "butt";
       ctx!.lineWidth = 1;
-      ctx!.strokeStyle = "rgba(236,231,223,0.14)";
+      ctx!.strokeStyle = "rgba(243,112,33,0.22)";
       for (const r of [R - band / 2, R + band / 2]) {
         ctx!.beginPath();
         ctx!.arc(cx, cy, r, ARC_START, ARC_START + ARC_LEN);
@@ -113,19 +95,18 @@ export function SystemField() {
       if (prev < 0 && dt > 0) dotFlare = 1;
       const head = ARC_START + lap * ARC_LEN;
       const trail = Math.min(2.2, lap * ARC_LEN);
-      ctx!.globalCompositeOperation = "lighter";
       const steps = 48;
       for (let i = 0; i < steps; i++) {
         const k = i / steps;
         const a0 = head - (trail * (i + 1)) / steps;
         const a1 = head - trail * k;
-        ctx!.strokeStyle = `rgba(250,${140 + Math.round(50 * (1 - k))},60,${0.32 * Math.pow(1 - k, 2.2)})`;
+        ctx!.strokeStyle = `rgba(243,${112 + Math.round(60 * (1 - k))},33,${0.55 * Math.pow(1 - k, 2.2)})`;
         ctx!.lineWidth = band * (1 - 0.35 * k);
         ctx!.beginPath();
         ctx!.arc(cx, cy, R, a0, a1);
         ctx!.stroke();
       }
-      glowDot(cx + Math.cos(head) * R, cy + Math.sin(head) * R, band * 1.6, AMBER, 0.35);
+      glowDot(cx + Math.cos(head) * R, cy + Math.sin(head) * R, band * 1.8, AMBER, 0.45);
 
       // the orange dot in the gap
       dotFlare = Math.max(0, dotFlare - dt * 0.6);
@@ -133,8 +114,7 @@ export function SystemField() {
       const dy = cy + Math.sin(GAP_CENTER) * R;
       const breathe = 0.5 + 0.5 * Math.sin(t * 1.2);
       glowDot(dx, dy, band * (2.2 + 1.4 * dotFlare), WARM, 0.22 + 0.1 * breathe + 0.3 * dotFlare);
-      ctx!.globalCompositeOperation = "source-over";
-      ctx!.fillStyle = "rgba(243,112,33,0.85)";
+      ctx!.fillStyle = "rgba(243,112,33,0.92)";
       ctx!.beginPath();
       ctx!.arc(dx, dy, band * 0.62, 0, Math.PI * 2);
       ctx!.fill();
@@ -142,10 +122,7 @@ export function SystemField() {
 
     function draw(now: number, dt: number) {
       const t = now / 1000;
-      drawPhoto(t);
-      ctx!.globalCompositeOperation = "lighter";
-      glowDot(w * (0.4 + 0.1 * Math.sin(t * 0.07)), h * (0.48 + 0.08 * Math.cos(t * 0.05)), Math.max(w, h) * 0.36, WARM, 0.06);
-      ctx!.globalCompositeOperation = "source-over";
+      drawBackground(t);
       drawO(t, dt);
     }
 
@@ -191,7 +168,7 @@ export function SystemField() {
     <div aria-hidden="true" className="pointer-events-none absolute inset-0">
       <canvas ref={canvasRef} className="h-full w-full" />
       {/* keep the headline area calm so the type always reads first */}
-      <div className="absolute inset-0 bg-[radial-gradient(42%_34%_at_50%_42%,rgba(10,9,8,0.5)_0%,rgba(10,9,8,0)_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(42%_34%_at_50%_42%,rgba(255,255,255,0.7)_0%,rgba(255,255,255,0)_100%)]" />
     </div>
   );
 }

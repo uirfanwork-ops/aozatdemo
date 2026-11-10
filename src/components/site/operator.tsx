@@ -178,7 +178,7 @@ function StackCard({
     <div className={cn("pb-8 lg:sticky lg:top-24", isLast ? "lg:pb-32" : "")} style={{ zIndex: index + 1 }}>
       <motion.article
         style={{ scale }}
-        className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-[0_30px_70px_-40px_rgba(15,23,42,0.35)] will-change-transform"
+        className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-[0_30px_70px_-40px_rgba(120,60,20,0.22)] will-change-transform"
       >
         <motion.div style={{ opacity: dim }} className="pointer-events-none absolute inset-0 z-10 bg-background" />
         <div className="p-7 sm:p-9">
@@ -228,7 +228,7 @@ function ModuleScreen({ screen }: { screen: (typeof modules)[number]["screen"] }
         <button
           type="button"
           aria-label={`Open a larger view of the ${screen.label} screen`}
-          className="group/screen mt-7 block w-full overflow-hidden rounded-2xl border border-border bg-secondary/60 text-left shadow-[0_30px_60px_-40px_rgba(0,0,0,0.6)] transition-colors duration-300 hover:border-brand/50"
+          className="group/screen mt-7 block w-full overflow-hidden rounded-2xl border border-border bg-secondary/60 text-left shadow-[0_30px_60px_-40px_rgba(120,60,20,0.3)] transition-colors duration-300 hover:border-brand/50"
         >
           <span className="flex items-center gap-2 border-b border-border px-4 py-2.5">
             <span className="flex gap-1.5" aria-hidden="true">
